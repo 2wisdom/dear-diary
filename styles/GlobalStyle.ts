@@ -15,24 +15,19 @@ export const GlobalStyle = createGlobalStyle`
    }
    `;
 
+/* Navbar Style */
 export const Navigaiter = styled.div`
+  display: flex;
+  justify-content: space-between;
   margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 50px;
   text-align: center;
   align-items: center;
   max-width: 95%;
 
-  ul {
-    margin: 10px 20px 0 20px;
-    display: flex;
-    justify-content: right;
-  }
-
-  ul li {
-    list-style: none;
-    margin: 0 0 0 10px;
-  }
-
   a {
     text-decoration: none;
+    margin: 0 0 0 10px;
   }
 `;
