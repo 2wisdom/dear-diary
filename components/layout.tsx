@@ -1,7 +1,8 @@
-import Navbar from "./navbar";
+import React from "react";
+import Navbar from "./Navbar";
 
 interface Parameter {
-  children: String;
+  children: React.ReactNode;
 }
 
 export default function Layout({ children }: Parameter) {
