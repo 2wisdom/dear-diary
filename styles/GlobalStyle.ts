@@ -15,6 +15,14 @@ export const GlobalStyle = createGlobalStyle`
    }
    `;
 
+/* Wrapper style */
+export const Wrapper = styled.div`
+  max-width: 1200px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 50px;
+`;
+
 /* Navbar Style */
 export const Navigaiter = styled.div`
   display: flex;
