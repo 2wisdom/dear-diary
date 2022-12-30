@@ -13,15 +13,9 @@ export default function Navbar() {
 
         {/* <Image src="/images/logo.png" alt="logo" width={380} height={100} /> */}
       </div>
-      {/* <ul> */}
-      {/* <li> */}
       <div>
         <Link href="/signup">회원가입</Link>
-        {/* </li> */}
-        {/* <li> */}
         <Link href="/signin">로그인</Link>
-        {/* </li> */}
-        {/* </ul> */}
       </div>
     </Navigaiter>
   );
