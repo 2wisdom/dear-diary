@@ -9,10 +9,9 @@ export default function Navbar() {
         <li>
           <Link href="/signup">회원가입</Link>
         </li>
-
-        <Link href="/signin">
-          <li>로그인</li>
-        </Link>
+        <li>
+          <Link href="/signin">로그인</Link>
+        </li>
       </ul>
     </Navigaiter>
   );
