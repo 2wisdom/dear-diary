@@ -36,6 +36,6 @@ export const Navigaiter = styled.div`
 
   a {
     text-decoration: none;
-    margin: 0 0 0 10px;
+    margin: 0 10px 0 10px;
   }
 `;
