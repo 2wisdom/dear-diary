@@ -8,7 +8,7 @@ export const GlobalStyle = createGlobalStyle`
        outline:0;
        box-sizing:border-box;
        font-family: 'Open Sans', sans-serif;
-       color: #000;
+       color: #373737;
    }
    #root{
        margin: 0 auto;
