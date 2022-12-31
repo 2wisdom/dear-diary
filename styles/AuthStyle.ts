@@ -16,15 +16,18 @@ export const Wrapper = styled.div`
     align-items: center;
     text-align: center;
   }
+
   /* text style */
   h1 {
     margin: 0 0 20px 0;
   }
+
   p {
     color: #f13a37;
     text-align: right;
     min-width: 100px;
   }
+
   /* input box style */
   input {
     padding: 8px 5px 8px 5px;
@@ -40,7 +43,8 @@ export const Wrapper = styled.div`
 
   /* button style */
   button {
-    padding: 3px 5px 3px 5px;
+    padding: 3px 10px 3px 10px;
+    margin-top: 50px;
     background-color: #e8e9ec;
     border: none;
     border-radius: 3px;
