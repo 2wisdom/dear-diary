@@ -37,4 +37,17 @@ export const Wrapper = styled.div`
     border: 2px solid #000;
     border-radius: 5px;
   }
+
+  /* button style */
+  button {
+    padding: 3px 5px 3px 5px;
+    background-color: #e8e9ec;
+    border: none;
+    border-radius: 3px;
+  }
+
+  button:hover {
+    transition: all 0.5s;
+    background-color: #ababab;
+  }
 `;
