@@ -6,12 +6,15 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 
   /* div in form style */
   form div {
     margin: 10px 0 10px 0;
     display: grid;
     grid-template-columns: 180px 200px;
+    align-items: center;
+    text-align: center;
   }
   /* text style */
   h1 {
@@ -24,6 +27,14 @@ export const Wrapper = styled.div`
   }
   /* input box style */
   input {
-    padding: 1px 5px 1px 5px;
+    padding: 8px 5px 8px 5px;
+
+    border: none;
+    border-bottom: 1px solid #000;
+  }
+
+  input:focus {
+    border: 2px solid #000;
+    border-radius: 5px;
   }
 `;
