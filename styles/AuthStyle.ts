@@ -23,6 +23,7 @@ export const Wrapper = styled.div`
   }
 
   p {
+    font-size: 12px;
     color: #f13a37;
     text-align: right;
     min-width: 100px;
@@ -31,8 +32,7 @@ export const Wrapper = styled.div`
   /* input box style */
   input {
     padding: 8px 5px 8px 5px;
-
-    border: none;
+    border: 3px solid transparent;
     border-bottom: 1px solid #000;
   }
 
