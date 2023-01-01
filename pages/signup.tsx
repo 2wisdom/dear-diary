@@ -57,22 +57,25 @@ export default function SignUp() {
           <label>Name</label>
           <input type="text" {...register("name")} />
         </div>
-        {errors.name && <p>{errors.name.message}</p>}
-
+        {(errors.name && <p>{errors.name.message}</p>) || (
+          <div style={{ height: 16 }}></div>
+        )}
         {/* email */}
         <div>
           <label>Email</label>
           <input type="email" {...register("email")} />
         </div>
-        {errors.email && <p>{errors.email.message}</p>}
-
+        {(errors.email && <p>{errors.email.message}</p>) || (
+          <div style={{ height: 16 }}></div>
+        )}
         {/* password */}
         <div>
           <label>Password</label>
           <input type="password" {...register("password")} />
         </div>
-        {errors.password && <p>{errors.password.message}</p>}
-
+        {(errors.password && <p>{errors.password.message}</p>) || (
+          <div style={{ height: 16 }}></div>
+        )}
         {/* confirm password */}
         <div>
           <label>ConfirmPassword</label>
@@ -81,8 +84,9 @@ export default function SignUp() {
             {...register("confirmPassword", { required: true })}
           />
         </div>
-        {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
-
+        {(errors.confirmPassword && (
+          <p>{errors.confirmPassword.message}</p>
+        )) || <div style={{ height: 16 }}></div>}
         {/* submit button */}
         <button>완료 !</button>
       </form>
