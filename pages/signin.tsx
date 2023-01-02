@@ -40,18 +40,14 @@ export default function SignIn() {
           <label>Email</label>
           <input type="email" {...register("email")} />
         </div>
-        {(errors.email && <p>{errors.email.message}</p>) || (
-          <div style={{ height: 16 }}></div>
-        )}
+        <p>{errors.email?.message || "\u00A0"}</p>
 
         {/* password */}
         <div>
           <label>Password</label>
           <input type="password" {...register("password")} />
         </div>
-        {(errors.password && <p>{errors.password.message}</p>) || (
-          <div style={{ height: 16 }}></div>
-        )}
+        <p>{errors.password?.message || "\u00A0"}</p>
 
         {/* submit button */}
         <button>완료 !</button>
