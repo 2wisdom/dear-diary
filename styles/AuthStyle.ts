@@ -11,10 +11,14 @@ export const Wrapper = styled.div`
   /* div in form style */
   form div {
     margin: 10px 0 10px 0;
-    display: grid;
-    grid-template-columns: 180px 200px;
     align-items: center;
     text-align: center;
+  }
+
+  form div label {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 180px 200px;
   }
 
   /* text style */
@@ -53,5 +57,8 @@ export const Wrapper = styled.div`
   button:hover {
     transition: all 0.5s;
     background-color: #ababab;
+  }
+
+  input {
   }
 `;
