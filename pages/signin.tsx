@@ -37,15 +37,19 @@ export default function SignIn() {
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* email */}
         <div>
-          <label>Email</label>
-          <input type="email" {...register("email")} />
+          <label>
+            Email
+            <input type="email" {...register("email")} />
+          </label>
         </div>
         <p>{errors.email?.message || "\u00A0"}</p>
 
         {/* password */}
         <div>
-          <label>Password</label>
-          <input type="password" {...register("password")} />
+          <label>
+            Password
+            <input type="password" {...register("password")} />
+          </label>
         </div>
         <p>{errors.password?.message || "\u00A0"}</p>
 

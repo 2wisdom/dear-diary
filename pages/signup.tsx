@@ -54,34 +54,48 @@ export default function SignUp() {
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* name */}
         <div>
-          <label>Name</label>
-          <input type="text" {...register("name")} />
+          <label>
+            Name
+            <input type="text" {...register("name")} />
+          </label>
         </div>
         <p>{errors.name?.message || "\u00A0"}</p>
 
         {/* email */}
         <div>
-          <label>Email</label>
-          <input type="email" {...register("email")} />
+          <label>
+            Email
+            <input type="email" {...register("email")} />
+          </label>
         </div>
         <p>{errors.email?.message || "\u00A0"}</p>
 
         {/* password */}
         <div>
-          <label>Password</label>
-          <input type="password" {...register("password")} />
+          <label>
+            Password
+            <input type="password" {...register("password")} />
+          </label>
         </div>
         <p>{errors.password?.message || "\u00A0"}</p>
 
         {/* confirm password */}
         <div>
-          <label>ConfirmPassword</label>
-          <input
-            type="password"
-            {...register("confirmPassword", { required: true })}
-          />
+          <label>
+            ConfirmPassword
+            <input
+              type="password"
+              {...register("confirmPassword", { required: true })}
+            />
+          </label>
         </div>
         <p>{errors.confirmPassword?.message || "\u00A0"}</p>
+
+        {/* check box */}
+        {/* <label>
+          체크박스
+          <input type="checkbox" id="checkbox" />
+        </label> */}
 
         {/* submit button */}
         <button>완료 !</button>
