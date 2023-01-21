@@ -8,19 +8,22 @@ import React from "react";
 import Layout from "../components/Layout";
 import { GlobalStyle, Wrapper } from "../styles/GlobalStyle";
 
+// Create a client
+const queryClient = new QueryClient();
+
 export default function App({ Component, pageProps }: AppProps) {
   const [queryClient] = React.useState(() => new QueryClient());
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <Hydrate state={pageProps.dehydratedState}>
-        <GlobalStyle />
+    <>
+      <GlobalStyle />
+      <QueryClientProvider client={queryClient}>
         <Layout>
           <Wrapper>
             <Component {...pageProps} />
           </Wrapper>
         </Layout>
-      </Hydrate>
-    </QueryClientProvider>
+      </QueryClientProvider>
+    </>
   );
 }
