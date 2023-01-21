@@ -3,6 +3,9 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Wrapper } from "../styles/AuthStyle";
+import { useMutation } from "@tanstack/react-query";
+import { Api } from "../lib/api";
+import { AxiosError } from "axios";
 
 /* type */
 interface FormInput {
@@ -45,7 +48,34 @@ export default function SignUp() {
   } = useForm<FormInput>({
     resolver: yupResolver(SignupSchema),
   });
-  const onSubmit: SubmitHandler<FormInput> = (data) => console.log(data);
+
+  const createUser = useMutation({
+    mutationFn: (input: Omit<FormInput, "confirmPassword">) => {
+      return Api.post(`/api/users/signup`, {
+        email: input.email,
+        password: input.password,
+        name: input.name,
+      });
+    },
+  });
+
+  const onSubmit: SubmitHandler<FormInput> = async (data) => {
+    try {
+      const { data: result } = await createUser.mutateAsync({
+        email: data.email,
+        name: data.name,
+        password: data.password,
+      });
+
+      // TODO: handle successful submission
+    } catch (e) {
+      if (e instanceof AxiosError) {
+        // TODO: handle error
+      } else {
+        // TODO: application error
+      }
+    }
+  };
 
   return (
     <Wrapper>
