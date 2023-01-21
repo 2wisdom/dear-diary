@@ -1,4 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
+import nc from "next-connect";
+import prisma from "../../../lib/prisma";
 
 type User = {
   name: string;
@@ -6,9 +8,27 @@ type User = {
   password: string;
 };
 
-export default function signup(
-  req: NextApiRequest,
-  res: NextApiResponse<User>
-) {
-  res.status(200);
-}
+const handler = nc<NextApiRequest, NextApiResponse>()
+  /**
+   * POST /api/users/signup 회원가입
+   *
+   * TODO: request validation
+   * TODO: password encryption
+   */
+  .post(async (req, res) => {
+    const { email, password, name } = req.body;
+
+    const savedUser = await prisma.user.create({
+      data: {
+        email,
+        name,
+        password,
+      },
+    });
+
+    return res.json({
+      id: savedUser.id,
+    });
+  });
+
+export default handler;
