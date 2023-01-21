@@ -6,6 +6,7 @@ import { Wrapper } from "../styles/AuthStyle";
 import { useMutation } from "@tanstack/react-query";
 import { Api } from "../lib/api";
 import { AxiosError } from "axios";
+import { useRouter } from "next/router";
 
 /* type */
 interface FormInput {
@@ -40,6 +41,9 @@ const SignupSchema = yup.object().shape({
 });
 
 export default function SignUp() {
+  // useRouter
+  const router = useRouter();
+
   /* Submit */
   const {
     register,
@@ -66,14 +70,17 @@ export default function SignUp() {
         name: data.name,
         password: data.password,
       });
-
       // TODO: handle successful submission
-    } catch (e) {
-      if (e instanceof AxiosError) {
+      alert("회원가입 완료!");
+      router.push("/signin");
+    } catch (err) {
+      if (err instanceof AxiosError) {
         // TODO: handle error
-      } else {
-        // TODO: application error
+        alert("회원가입 중 오류가 발생했습니다. 다시 시도해주세요.");
       }
+      // else {
+      //   // TODO: application error
+      // }
     }
   };
 
