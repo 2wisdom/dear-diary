@@ -18,6 +18,19 @@ const handler = nc<NextApiRequest, NextApiResponse>()
   .post(async (req, res) => {
     const { email, password, name } = req.body;
 
+    const countOfEmail = await prisma.user.count({
+      where: {
+        email,
+      },
+    });
+
+    if (countOfEmail > 0) {
+      return res.json({
+        successful: false,
+        message: "이미 존재하는 이메일이 있습니다",
+      });
+    }
+
     const savedUser = await prisma.user.create({
       data: {
         email,
@@ -27,6 +40,7 @@ const handler = nc<NextApiRequest, NextApiResponse>()
     });
 
     return res.json({
+      successful: true,
       id: savedUser.id,
     });
   });

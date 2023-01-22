@@ -55,11 +55,14 @@ export default function SignUp() {
 
   const createUser = useMutation({
     mutationFn: (input: Omit<FormInput, "confirmPassword">) => {
-      return Api.post(`/api/users/signup`, {
-        email: input.email,
-        password: input.password,
-        name: input.name,
-      });
+      return Api.post<{ successful: boolean; message?: string }>(
+        `/api/users/signup`,
+        {
+          email: input.email,
+          password: input.password,
+          name: input.name,
+        }
+      );
     },
   });
 
@@ -70,6 +73,12 @@ export default function SignUp() {
         name: data.name,
         password: data.password,
       });
+
+      if (!result.successful) {
+        alert(result.message);
+        return;
+      }
+
       // TODO: handle successful submission
       alert("회원가입 완료!");
       router.push("/signin");
