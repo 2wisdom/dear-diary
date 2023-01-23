@@ -22,13 +22,13 @@ export default function App({
     <>
       <GlobalStyle />
       <QueryClientProvider client={queryClient}>
-        <Layout>
-          <Wrapper>
-            <SessionProvider session={session}>
+        <SessionProvider session={session}>
+          <Layout>
+            <Wrapper>
               <Component {...pageProps} />
-            </SessionProvider>
-          </Wrapper>
-        </Layout>
+            </Wrapper>
+          </Layout>
+        </SessionProvider>
       </QueryClientProvider>
     </>
   );
