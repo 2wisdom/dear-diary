@@ -8,10 +8,10 @@ export default function Navbar() {
     <Navigaiter>
       <div>
         <h1>
-          <Link href="/">Dear Diary</Link>
+          <Link href="/">
+            <Image src="/images/logo.png" width={230} height={57} alt="logo" />
+          </Link>
         </h1>
-
-        {/* <Image src="/images/logo.png" alt="logo" width={380} height={100} /> */}
       </div>
       <div>
         <Link href="/signup">회원가입</Link>
