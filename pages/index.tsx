@@ -1,12 +1,27 @@
-import Head from "next/head";
 import Image from "next/image";
-import styles from "../styles/Home.module.css";
-import { useQuery } from "@tanstack/react-query";
+import { IndexStyle } from "../styles/IndexStyle";
 
 export default function Home() {
   return (
-    <div>
-      <h1>Dear Diary!</h1>
-    </div>
+    <IndexStyle>
+      <div>
+        <Image
+          src="/images/book_vector.svg"
+          alt="home"
+          width={825}
+          height={404}
+        />
+      </div>
+      <div>
+        <Image
+          src="/images/title.svg"
+          alt="title"
+          width={418}
+          height={91}
+          style={{ marginTop: 60 }}
+        />
+        <a>액정 속 나만의 다이어리</a>
+      </div>
+    </IndexStyle>
   );
 }
