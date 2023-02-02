@@ -6,17 +6,16 @@ import { Navigaiter } from "../styles/GlobalStyle";
 export default function Navbar() {
   return (
     <Navigaiter>
-      <div>
-        <h1>
-          <Link href="/">
-            <Image src="/images/logo.png" width={230} height={57} alt="logo" />
-          </Link>
-        </h1>
-      </div>
-      <div>
-        <Link href="/signup">회원가입</Link>
-        <Link href="/signin">로그인</Link>
-      </div>
+      <Link href="/">
+        <Image
+          src="/images/logo.svg"
+          width={234}
+          height={60}
+          alt="logo"
+          style={{ alignItems: "center" }}
+        />
+      </Link>
+      <Link href="/signin">로그인</Link>
     </Navigaiter>
   );
 }
