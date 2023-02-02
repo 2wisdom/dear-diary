@@ -17,6 +17,19 @@ export const IndexStyle = styled.div`
     stroke-width: 3;
     fill: none;
     stroke-dasharray: ${bookDrawingLength};
-    animation: ${pathAni} 5s;
+    animation: ${pathAni} 5s ease-in;
+  }
+
+  .title-image {
+    animation: fadein 4s ease-in;
+
+    @keyframes fadein {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
   }
 `;
