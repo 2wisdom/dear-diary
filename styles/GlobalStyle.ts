@@ -51,8 +51,8 @@ export const FooterStyle = styled.div`
   display: flex;
   justify-content: space-between;
   text-align: center;
-  align-items: center;
-  padding: 0 50px 0 50px;
+  padding: 65px 50px 0 50px;
+  margin-top: 50px;
   background-color: #f2f2f2;
   height: 150px;
   bottom: 0;
