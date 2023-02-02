@@ -1,6 +1,6 @@
 # Dear Diary (진행중)
 
-🔗 [액정 속 나만의 다이어리](dear-diary-seven.vercel.app/)
+🔗 [액정 속 나만의 다이어리](https://dear-diary-seven.vercel.app/)
 
 ## Tech Stack
 
