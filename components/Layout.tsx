@@ -1,4 +1,6 @@
 import React from "react";
+import { ContentWrapper, GlobalStyle, Wrapper } from "../styles/GlobalStyle";
+import Footer from "./Footer";
 import Navbar from "./Navbar";
 
 interface Parameter {
@@ -8,8 +10,14 @@ interface Parameter {
 export default function Layout({ children }: Parameter) {
   return (
     <>
-      <Navbar />
-      <main>{children}</main>
+      <GlobalStyle />
+      <Wrapper>
+        <Navbar />
+        <ContentWrapper>
+          <main>{children}</main>
+        </ContentWrapper>
+        <Footer />
+      </Wrapper>
     </>
   );
 }
