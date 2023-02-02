@@ -36,11 +36,9 @@ export const Navigaiter = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-  margin-top: 20px;
-  margin-bottom: 50px;
+  margin: 20px 10px 0 10px;
   text-align: center;
   align-items: center;
-  max-width: 95%;
 
   a {
     text-decoration: none;
