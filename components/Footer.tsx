@@ -13,7 +13,7 @@ export default function Footer() {
         </a>
       </div>
       <div>
-        <a href="https://github.com/2wisdom" target="_blank">
+        <a href="https://github.com/2wisdom" target="_blank" rel="noreferrer">
           <Image src="/images/github.svg" alt="github" width={24} height={24} />
         </a>
       </div>
