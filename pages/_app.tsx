@@ -4,9 +4,6 @@ import { SessionProvider } from "next-auth/react";
 import React from "react";
 import Layout from "../components/Layout";
 
-// Create a client
-const queryClient = new QueryClient();
-
 export default function App({
   Component,
   pageProps: { session, ...pageProps },
