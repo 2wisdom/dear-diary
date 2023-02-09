@@ -62,3 +62,20 @@ export const Wrapper = styled.div`
   input {
   }
 `;
+
+/* kakao-login button */
+export const KakaoBtn = styled.div`
+  background-color: #fee500;
+  width: 300px;
+  height: 45px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  border-radius: 12px;
+  padding: 15px;
+  font-size: 14px;
+
+  a {
+    width: 85%;
+  }
+`;
