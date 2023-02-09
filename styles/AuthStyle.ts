@@ -71,9 +71,10 @@ export const KakaoBtn = styled.div`
   display: flex;
   text-align: center;
   align-items: center;
-  border-radius: 12px;
+  border-radius: 10px;
   padding: 15px;
   font-size: 14px;
+  cursor: pointer;
 
   a {
     width: 85%;
