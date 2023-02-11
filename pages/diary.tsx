@@ -1,7 +1,13 @@
+import React from "react";
+import DiaryCalendar from "../components/diary/DiaryCalendar";
+import DiaryTitle from "../components/diary/DiaryTitle";
+import { DiaryTitleStyle } from "../styles/DiaryStyle";
+
 export default function Diary() {
   return (
-    <div>
-      <h1>Dear Diary!</h1>
-    </div>
+    <DiaryTitleStyle>
+      <DiaryCalendar />
+      <DiaryTitle />
+    </DiaryTitleStyle>
   );
 }
