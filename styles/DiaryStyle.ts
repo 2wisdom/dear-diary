@@ -5,7 +5,7 @@ export const DiaryTitleStyle = styled.div`
   text-align: center;
   align-items: center;
   position: relative;
-  right: 20px;
+  left: 20px;
   input {
     background-color: transparent;
     width: 625px;
