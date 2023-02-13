@@ -4,7 +4,10 @@ export const DiaryTitleStyle = styled.div`
   display: flex;
   text-align: center;
   align-items: center;
+  position: relative;
+  right: 20px;
   input {
+    background-color: transparent;
     width: 625px;
     border: 3px solid transparent;
     border-bottom: 3px solid #78a67e;
