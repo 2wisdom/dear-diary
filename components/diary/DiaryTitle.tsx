@@ -1,16 +1,16 @@
 import React from "react";
 import { DiaryTitleStyle } from "../../styles/DiaryStyle";
-import Image from "next/image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { faCalendarAlt } from "@fortawesome/fontawesome-free-solid";
 
 export default function DiaryTitle() {
   return (
     <DiaryTitleStyle>
       {/* calendar */}
-      <Image
-        src="/images/calendar_icon.png"
-        alt="calendar"
-        width={42}
-        height={42}
+      <FontAwesomeIcon
+        icon={faCalendarAlt as IconProp}
+        style={{ width: 40, height: 40 }}
       />
 
       {/* title */}
