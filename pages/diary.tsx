@@ -1,13 +1,12 @@
 import React from "react";
-import DiaryImage from "../components/diary/DiaryImage";
 import DiaryTitle from "../components/diary/DiaryTitle";
-import { DiaryTitleStyle } from "../styles/DiaryStyle";
+import DiaryMain from "../components/diary/DiaryMain";
 
 export default function Diary() {
   return (
     <>
       <DiaryTitle />
-      <DiaryImage />
+      <DiaryMain />
     </>
   );
 }

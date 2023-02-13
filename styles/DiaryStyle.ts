@@ -18,3 +18,12 @@ export const DiaryTitleStyle = styled.div`
     margin: 10px;
   }
 `;
+
+export const DiaryMainStyle = styled.div`
+  display: flex;
+  align-items: center;
+  text-align: center;
+  div {
+    margin: 20px;
+  }
+`;
