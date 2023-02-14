@@ -28,3 +28,18 @@ export const DiaryMainStyle = styled.div`
     margin: 20px;
   }
 `;
+
+export const DiaryContentStyle = styled.div`
+  max-width: 900px;
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+  }
+
+  h4 {
+    font-size: 20px;
+    font-weight: 500;
+  }
+`;
