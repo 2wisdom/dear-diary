@@ -58,3 +58,16 @@ export const FooterStyle = styled.div`
   height: 150px;
   bottom: 0;
 `;
+
+/* Button Style */
+export const ButtonStyle = styled.div`
+  div {
+    text-align: center;
+    align-items: center;
+    background-color: #b2d1b6;
+    border-radius: 10px;
+    padding: 3px 15px 3px 15px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+`;
