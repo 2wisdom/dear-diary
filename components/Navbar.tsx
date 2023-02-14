@@ -20,7 +20,7 @@ export default function Navbar() {
           />
         </Link>
 
-        <a onClick={() => signOut()}>로그아웃</a>
+        <a onClick={() => signOut({ callbackUrl: "/" })}>로그아웃</a>
       </Navigaiter>
     );
   }

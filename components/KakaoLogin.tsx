@@ -6,7 +6,7 @@ export default function KakaoLogin() {
 
   return (
     <>
-      <KakaoBtn onClick={() => signIn("kakao")}>
+      <KakaoBtn onClick={() => signIn("kakao", { callbackUrl: "/user" })}>
         <Image
           src="/images/kakao_logo.png"
           alt="kakao-login"
