@@ -6,7 +6,8 @@ export const DiaryTitleStyle = styled.div`
   align-items: center;
   position: relative;
   left: 20px;
-  input {
+  input,
+  h3 {
     background-color: transparent;
     width: 625px;
     border: 3px solid transparent;
