@@ -17,7 +17,9 @@ export default function DiaryMain() {
           style={{ width: 25, height: 25 }}
         />
       </div>
-      <DiaryImage />
+      <div>
+        <DiaryImage />
+      </div>
       <div>
         <FontAwesomeIcon
           icon={faChevronRight as IconProp}

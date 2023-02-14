@@ -26,6 +26,8 @@ export const DiaryMainStyle = styled.div`
   text-align: center;
   div {
     margin: 20px;
+    align-items: center;
+    text-align: center;
   }
 `;
 
@@ -36,6 +38,8 @@ export const DiaryContentStyle = styled.div`
     display: flex;
     justify-content: space-between;
     margin: 10px;
+    align-items: center;
+    text-align: center;
   }
 
   h4 {

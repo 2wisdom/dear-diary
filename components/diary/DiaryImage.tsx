@@ -10,7 +10,7 @@ export default function DiaryImage() {
       alt="diaryImage"
       width={600}
       height={1}
-      style={{ width: "auto", maxWidth: 900, height: "auto", maxHeight: 450 }}
+      style={{ height: "auto", maxHeight: 450 }}
     />
   );
 }
