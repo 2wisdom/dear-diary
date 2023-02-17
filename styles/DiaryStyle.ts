@@ -5,7 +5,8 @@ export const DiaryTitleStyle = styled.div`
   text-align: center;
   align-items: center;
   position: relative;
-  left: 20px;
+  justify-content: center;
+  right: 20px;
   input,
   h3 {
     background-color: transparent;
@@ -24,10 +25,17 @@ export const DiaryMainStyle = styled.div`
   display: flex;
   align-items: center;
   text-align: center;
-  div {
-    margin: 20px;
+  justify-content: center;
+
+  .main-container {
+    display: flex;
     align-items: center;
     text-align: center;
+    margin: 0;
+  }
+
+  .chevron-icon {
+    margin: 0 20px 0 20px;
   }
 `;
 
