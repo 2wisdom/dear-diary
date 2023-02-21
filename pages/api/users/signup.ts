@@ -35,7 +35,7 @@ const handler = nc<NextApiRequest, NextApiResponse>()
       data: {
         email,
         name,
-        password,
+        // password,
       },
     });
 
