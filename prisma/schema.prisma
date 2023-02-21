@@ -61,6 +61,8 @@ model Diary {
   title String
   content String @db.Text
 
+  image String @db.VarChar(255)
+
   user User @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   userId String
 

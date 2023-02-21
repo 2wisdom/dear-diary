@@ -34,6 +34,7 @@ handler.post(async (req, res) => {
   const schema = J.object({
     id: J.string(),
     title: J.string().required(),
+    image: J.string().required(),
     content: J.string().required(),
     diaryDate: J.date().iso().required(),
   });
@@ -43,7 +44,7 @@ handler.post(async (req, res) => {
     return res.status(400).send(error);
   }
 
-  let { id = _.uid(10), content, title, diaryDate } = value;
+  let { id = _.uid(10), content, title, diaryDate, image } = value;
 
   try {
     const upsert = await prisma.diary.upsert({
@@ -52,6 +53,7 @@ handler.post(async (req, res) => {
         content: content,
         diaryDate: dayjs(diaryDate).toDate(),
         id: id,
+        image: image,
         user: {
           connect: {
             id: session.id,
