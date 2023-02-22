@@ -1,13 +1,15 @@
 import React from "react";
 import { DiaryTitleStyle } from "../../styles/DiaryStyle";
 import DiaryCalendar from "./DiaryCalendar";
-import { diaryData } from "../../diary-dummy-data";
 
-export default function DiaryTitle() {
+export default function DiaryTitle(
+  this: any,
+  { isRead = true, isValue = this }
+) {
   return (
     <DiaryTitleStyle>
       <DiaryCalendar />
-      <h3>{diaryData.title}</h3>
+      <input type="text" readOnly={isRead} value={isValue} />
     </DiaryTitleStyle>
   );
 }
