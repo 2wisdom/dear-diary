@@ -2,11 +2,10 @@ import React from "react";
 import { DiaryContentStyle } from "../../styles/DiaryStyle";
 import { ButtonStyle } from "../../styles/GlobalStyle";
 
-export default function DiaryContent({
-  isDate = "",
-  isContent = "",
-  isDisabled = false,
-}) {
+export default function DiaryContent(
+  this: string,
+  { isDate = this, isContent = "", isDisabled = false }
+) {
   return (
     <DiaryContentStyle>
       <div>

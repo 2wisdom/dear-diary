@@ -62,4 +62,9 @@ export const DiaryContentStyle = styled.div`
     background-color: transparent;
     border: 1px solid transparent;
   }
+
+  input[type="date"] {
+    border: 1px solid transparent;
+    font-size: 16px;
+  }
 `;
