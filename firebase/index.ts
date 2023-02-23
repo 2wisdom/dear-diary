@@ -1,5 +1,4 @@
 import admin from "firebase-admin";
-import serviceAccountJson from "./serviceAccountJson.json";
 
 export function installFirebaseApp() {
   if (admin.apps.length > 0) {
