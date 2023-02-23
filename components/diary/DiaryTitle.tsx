@@ -3,7 +3,7 @@ import { DiaryTitleStyle } from "../../styles/DiaryStyle";
 import DiaryCalendar from "./DiaryCalendar";
 
 export default function DiaryTitle(
-  this: any,
+  this: string,
   { isRead = false, isValue = this }
 ) {
   return (
