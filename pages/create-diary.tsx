@@ -6,7 +6,7 @@ import DiaryContent from "../components/diary/DiaryContent";
 export default function CreateDiary() {
   return (
     <>
-      <DiaryTitle isRead={false} />
+      <DiaryTitle />
       <DiaryMain />
       <DiaryContent />
     </>

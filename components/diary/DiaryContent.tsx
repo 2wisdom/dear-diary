@@ -1,9 +1,12 @@
 import React from "react";
-import { diaryData } from "../../diary-dummy-data";
 import { DiaryContentStyle } from "../../styles/DiaryStyle";
 import { ButtonStyle } from "../../styles/GlobalStyle";
 
-export default function DiaryContent({ isDate = "", isContent = "" }) {
+export default function DiaryContent({
+  isDate = "",
+  isContent = "",
+  isDisabled = false,
+}) {
   return (
     <DiaryContentStyle>
       <div>
@@ -13,8 +16,15 @@ export default function DiaryContent({ isDate = "", isContent = "" }) {
           <div>삭제</div>
         </ButtonStyle>
       </div>
-      <div>
-        <input type="text" value={isContent} />
+      <div className="content-container">
+        <textarea
+          placeholder="오늘 무슨일이 있었나요?"
+          maxLength={100}
+          minLength={1}
+          disabled={isDisabled}
+        >
+          {isContent}
+        </textarea>
       </div>
     </DiaryContentStyle>
   );

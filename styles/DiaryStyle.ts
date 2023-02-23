@@ -7,8 +7,8 @@ export const DiaryTitleStyle = styled.div`
   position: relative;
   justify-content: center;
   right: 20px;
-  input,
-  h3 {
+
+  input {
     background-color: transparent;
     width: 625px;
     border: 3px solid transparent;
@@ -50,8 +50,16 @@ export const DiaryContentStyle = styled.div`
     text-align: center;
   }
 
-  h4 {
-    font-size: 20px;
-    font-weight: 500;
+  .content-container {
+    justify-content: center;
+  }
+
+  textarea {
+    width: 600px;
+    min-height: 100px;
+    font-size: 16px;
+    resize: none;
+    background-color: transparent;
+    border: 1px solid transparent;
   }
 `;

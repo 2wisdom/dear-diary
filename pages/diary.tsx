@@ -9,7 +9,11 @@ export default function Diary() {
     <>
       <DiaryTitle isRead={true} isValue={diaryData.title} />
       <DiaryMain />
-      <DiaryContent isDate={diaryData.date} isContent={diaryData.content} />
+      <DiaryContent
+        isDate={diaryData.date}
+        isContent={diaryData.content}
+        isDisabled={true}
+      />
     </>
   );
 }
