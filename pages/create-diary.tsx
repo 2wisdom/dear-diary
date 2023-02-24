@@ -35,9 +35,12 @@ export default function CreateDiary() {
     register,
     handleSubmit,
     formState: { errors },
+    watch,
+    setValue,
   } = useForm<FormInput>({
     resolver: yupResolver(DiarySchema),
   });
+
   const onSubmit: SubmitHandler<FormInput> = async (data) => {
     console.log("data", data);
     /* Api Connect */
@@ -55,16 +58,22 @@ export default function CreateDiary() {
   /* Image Upload */
   const onImageChange = async (e: any) => {
     const formData = new FormData();
+
+    if (!e.target.files[0]) {
+      return;
+    }
+
     formData.append("file", e.target.files[0]);
     const response = await axios.post("/api/upload", formData);
     const imageUrl = response.data.resolveUrl;
     console.log("image", imageUrl);
 
-    // return imageUrl;
+    setValue("image", imageUrl);
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
+      <input type="hidden" {...register("image")} />
       <DiaryTitleStyle>
         {/* title */}
         <input type="text" placeholder="오늘의 일기" {...register("title")} />
@@ -77,12 +86,13 @@ export default function CreateDiary() {
             <label htmlFor="uploadFile" className="upladLabel">
               Click ! 📸
             </label>
+
             <input
               type="file"
+              style={{ display: "none" }}
               // name="uploadFile"
               id="uploadFile"
               accept="image/*"
-              {...register("image")}
               onChange={onImageChange}
             />
           </div>
