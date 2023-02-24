@@ -6,7 +6,7 @@ export const DiaryTitleStyle = styled.div`
   align-items: center;
   position: relative;
   justify-content: center;
-  right: 20px;
+  /* right: 20px; */
 
   input {
     background-color: transparent;
@@ -37,6 +37,24 @@ export const DiaryMainStyle = styled.div`
   .chevron-icon {
     margin: 0 20px 0 20px;
   }
+
+  .upload-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    width: 600px;
+    height: 450px;
+  }
+
+  .upladLabel {
+    cursor: pointer;
+  }
+
+  input[type="file"] {
+    visibility: hidden;
+  }
 `;
 
 export const DiaryContentStyle = styled.div`
@@ -45,7 +63,7 @@ export const DiaryContentStyle = styled.div`
   div {
     display: flex;
     justify-content: space-between;
-    margin: 10px;
+    margin: 10px 0 10px 0;
     align-items: center;
     text-align: center;
   }

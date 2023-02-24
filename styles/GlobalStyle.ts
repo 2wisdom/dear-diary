@@ -13,6 +13,10 @@ export const GlobalStyle = createGlobalStyle`
    #root{
        margin: 0 auto;
    }
+
+   .error-message {
+    color: #ED553B;
+   }
    `;
 
 /* Wrapper style */
@@ -60,14 +64,14 @@ export const FooterStyle = styled.div`
 `;
 
 /* Button Style */
-export const ButtonStyle = styled.div`
-  div {
-    text-align: center;
-    align-items: center;
-    background-color: #b2d1b6;
-    border-radius: 10px;
-    padding: 3px 15px 3px 15px;
-    font-size: 16px;
-    cursor: pointer;
-  }
+export const ButtonStyle = styled.button`
+  text-align: center;
+  align-items: center;
+  background-color: #b2d1b6;
+  border: none;
+  border-radius: 10px;
+  padding: 3px 15px 3px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 10px;
 `;
