@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Image from "next/image";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -26,8 +25,6 @@ const DiarySchema = yup.object().shape({
   content: yup.string().required("오늘 있던 일을 이야기해 주세요!"),
   diaryDate: yup.string().required("오늘이 며칠인지 알려주세요!"),
 });
-
-// const diaryImageExmaple = "diary-image-example.jpg";
 
 export default function CreateDiary() {
   /* Submit */
@@ -90,22 +87,10 @@ export default function CreateDiary() {
             <input
               type="file"
               style={{ display: "none" }}
-              // name="uploadFile"
               id="uploadFile"
               accept="image/*"
               onChange={onImageChange}
             />
-          </div>
-
-          <div>
-            {/* <Image
-              src={`/images/${diaryImageExmaple}`}
-              alt="diaryImage"
-              width={600}
-              height={1}
-              style={{ height: "auto", maxHeight: 450, borderRadius: 20 }}
-              {...register("image")}
-            /> */}
           </div>
         </div>
       </DiaryMainStyle>
