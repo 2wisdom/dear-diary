@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -27,6 +28,8 @@ const DiarySchema = yup.object().shape({
 });
 
 export default function CreateDiary() {
+  const router = useRouter();
+
   /* Submit */
   const {
     register,
@@ -46,9 +49,15 @@ export default function CreateDiary() {
 
       if (res.status === 200) {
         alert("오늘도 수고했어요!");
+        router.push({
+          pathname: `/diary`,
+        });
       }
     } catch (err) {
       alert("오류가 발생하였습니다.");
+      router.push({
+        pathname: `/diary`,
+      });
     }
   };
 
@@ -70,7 +79,6 @@ export default function CreateDiary() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
-      <input type="hidden" {...register("image")} />
       <DiaryTitleStyle>
         {/* title */}
         <input type="text" placeholder="오늘의 일기" {...register("title")} />
@@ -80,6 +88,7 @@ export default function CreateDiary() {
       <DiaryMainStyle>
         <div className="main-container">
           <div className="upload-btn">
+            <input type="hidden" {...register("image")} />
             <label htmlFor="uploadFile" className="upladLabel">
               Click ! 📸
             </label>
