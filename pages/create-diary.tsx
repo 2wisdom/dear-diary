@@ -55,9 +55,6 @@ export default function CreateDiary() {
       }
     } catch (err) {
       alert("오류가 발생하였습니다.");
-      router.push({
-        pathname: `/diary`,
-      });
     }
   };
 
