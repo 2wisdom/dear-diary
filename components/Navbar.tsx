@@ -8,23 +8,28 @@ export default function Navbar() {
   const { data: session } = useSession();
 
   if (session) {
+    /* 로그인 상태 */
     return (
       <Navigaiter>
-        <Link href="/">
-          <Image
-            src="/images/logo.svg"
-            width={234}
-            height={60}
-            alt="logo"
-            style={{ alignItems: "center" }}
-          />
-        </Link>
-
-        <a onClick={() => signOut({ callbackUrl: "/" })}>로그아웃</a>
+        <div>
+          <Link href="/">
+            <Image
+              src="/images/logo.svg"
+              width={234}
+              height={60}
+              alt="logo"
+              style={{ alignItems: "center" }}
+            />
+          </Link>
+        </div>
+        <div>
+          <Link href="/user">내 일기</Link>
+          <a onClick={() => signOut({ callbackUrl: "/" })}>로그아웃</a>
+        </div>
       </Navigaiter>
     );
   }
-
+  /* 비로그인 상태 */
   return (
     <Navigaiter>
       <Link href="/">
