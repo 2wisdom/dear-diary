@@ -55,6 +55,19 @@ export const DiaryMainStyle = styled.div`
   input[type="file"] {
     visibility: hidden;
   }
+
+  .upload-image {
+    max-width: 600px;
+    max-height: 450px;
+  }
+
+  .image-hidden {
+    display: none;
+  }
+
+  .click-hidden {
+    display: none;
+  }
 `;
 
 export const DiaryContentStyle = styled.div`

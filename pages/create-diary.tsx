@@ -10,6 +10,7 @@ import {
   DiaryTitleStyle,
 } from "../styles/DiaryStyle";
 import { ButtonStyle } from "../styles/GlobalStyle";
+import Image from "next/image";
 
 /* type */
 interface FormInput {
@@ -29,6 +30,10 @@ const DiarySchema = yup.object().shape({
 
 export default function CreateDiary() {
   const router = useRouter();
+
+  const [uploadImage, setuploadImage] = useState();
+  const [changeImageStyle, setChangeImageStyle] = useState("image-hidden");
+  const [changeClick, setChangeClick] = useState("");
 
   /* Submit */
   const {
@@ -69,9 +74,13 @@ export default function CreateDiary() {
     formData.append("file", e.target.files[0]);
     const response = await axios.post("/api/upload", formData);
     const imageUrl = response.data.resolveUrl;
-    console.log("image", imageUrl);
+    // console.log("image", imageUrl);
 
     setValue("image", imageUrl);
+
+    setuploadImage(imageUrl);
+    setChangeImageStyle("");
+    setChangeClick("click-hidden");
   };
 
   return (
@@ -86,13 +95,18 @@ export default function CreateDiary() {
         <div className="main-container">
           <div className="upload-btn">
             <input type="hidden" {...register("image")} />
-            <label htmlFor="uploadFile" className="upladLabel">
+            <label htmlFor="uploadFile" className={`upladLabel ${changeClick}`}>
               Click ! 📸
             </label>
 
+            <img
+              className={`upload-image ${changeImageStyle}`}
+              src={uploadImage}
+              alt="diary-image"
+            />
+
             <input
               type="file"
-              style={{ display: "none" }}
               id="uploadFile"
               accept="image/*"
               onChange={onImageChange}
