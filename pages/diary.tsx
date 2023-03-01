@@ -17,6 +17,14 @@ export default function Diary() {
     }
   };
 
+  useEffect(() => {
+    axios.get("api/diary", {
+      params: {
+        at: "2023-01-01",
+      },
+    });
+  }, []);
+
   // getDiary();
 
   return (
