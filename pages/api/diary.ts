@@ -106,6 +106,14 @@ handler.get(async (req, res) => {
     at: string;
   };
 
+  const session = await getServerSession(req, res);
+
+  if (!session) {
+    return res.status(401).send({
+      message: "로그인이 필요합니다",
+    });
+  }
+
   const searchDate = new Date(at as string);
 
   // 현재 날짜보다 이전날짜의 첫번째 데이터를 가져온다.
@@ -114,6 +122,7 @@ handler.get(async (req, res) => {
       diaryDate: {
         lt: searchDate,
       },
+      userId: session.id,
     },
     orderBy: {
       diaryDate: "desc",
@@ -126,6 +135,7 @@ handler.get(async (req, res) => {
       diaryDate: {
         gt: searchDate,
       },
+      userId: session.id,
     },
     orderBy: {
       diaryDate: "asc",
@@ -136,6 +146,7 @@ handler.get(async (req, res) => {
   const first = await prisma.diary.findFirst({
     where: {
       diaryDate: searchDate,
+      userId: session.id,
     },
   });
 
