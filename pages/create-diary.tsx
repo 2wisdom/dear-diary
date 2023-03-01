@@ -50,14 +50,12 @@ export default function CreateDiary() {
     console.log("data", data);
     /* Api Connect */
     try {
-      const res = await axios.post("/api/diary", data);
+      await axios.post("/api/diary", data);
 
-      if (res.status === 200) {
-        alert("오늘도 수고했어요!");
-        router.push({
-          pathname: `/diary`,
-        });
-      }
+      alert("오늘도 수고했어요!");
+      router.push({
+        pathname: `/diary`,
+      });
     } catch (err) {
       alert("오류가 발생하였습니다.");
     }
