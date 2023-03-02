@@ -10,15 +10,15 @@ import {
   DiaryTitleStyle,
 } from "../styles/DiaryStyle";
 import { ButtonStyle } from "../styles/GlobalStyle";
-import Image from "next/image";
+import { useMutation } from "@tanstack/react-query";
 
 /* type */
-interface FormInput {
+export type DiaryFormValue = {
   title: string;
   image: string;
   content: string;
   diaryDate: string;
-}
+};
 
 /* Yup Vaildation */
 const DiarySchema = yup.object().shape({
@@ -28,7 +28,7 @@ const DiarySchema = yup.object().shape({
   diaryDate: yup.string().required("오늘이 며칠인지 알려주세요!"),
 });
 
-export default function CreateDiary() {
+export default function CreateDiaryForm() {
   const router = useRouter();
 
   const [uploadImage, setuploadImage] = useState();
@@ -40,26 +40,30 @@ export default function CreateDiary() {
     register,
     handleSubmit,
     formState: { errors },
-    watch,
+    reset,
     setValue,
-  } = useForm<FormInput>({
+  } = useForm<DiaryFormValue>({
     resolver: yupResolver(DiarySchema),
   });
 
-  const onSubmit: SubmitHandler<FormInput> = async (data) => {
-    console.log("data", data);
-    /* Api Connect */
+  const createDiary = useMutation(async (values: DiaryFormValue) => {
+    /* Api Call */
+    return axios.post("/api/diary", values);
+  });
+
+  const onSubmit = handleSubmit(async (values) => {
     try {
-      await axios.post("/api/diary", data);
+      await createDiary.mutateAsync(values);
 
       alert("오늘도 수고했어요!");
       router.push({
-        pathname: `/diary`,
+        pathname: "/diary",
       });
     } catch (err) {
+      console.log(err);
       alert("오류가 발생하였습니다.");
     }
-  };
+  });
 
   /* Image Upload */
   const onImageChange = async (e: any) => {
@@ -72,7 +76,6 @@ export default function CreateDiary() {
     formData.append("file", e.target.files[0]);
     const response = await axios.post("/api/upload", formData);
     const imageUrl = response.data.resolveUrl;
-    // console.log("image", imageUrl);
 
     setValue("image", imageUrl);
 
@@ -82,7 +85,7 @@ export default function CreateDiary() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
+    <form onSubmit={onSubmit} encType="multipart/form-data">
       <DiaryTitleStyle>
         {/* title */}
         <input type="text" placeholder="오늘의 일기" {...register("title")} />
