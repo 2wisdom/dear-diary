@@ -121,11 +121,21 @@ export default function CreateDiaryForm() {
             type="date"
             min="1998-02-20"
             max={new Date().toJSON().slice(0, 10)}
+            defaultValue={new Date().toJSON().slice(0, 10)}
             {...register("diaryDate")}
           />
           <div>
             <ButtonStyle type="submit">완료</ButtonStyle>
-            <ButtonStyle type="reset">취소</ButtonStyle>
+            <ButtonStyle
+              type="reset"
+              onClick={() => {
+                router.push({
+                  pathname: "/diary",
+                });
+              }}
+            >
+              취소
+            </ButtonStyle>
           </div>
         </div>
         <div className="content-container">
