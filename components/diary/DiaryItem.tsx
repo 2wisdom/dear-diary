@@ -13,6 +13,9 @@ export type DiaryItemProps = {
 export default function DiaryItem(props: DiaryItemProps) {
   const { data } = props;
 
+  const diaryDate: string = data?.data.content.diaryDate;
+  const diaryDateFormat = diaryDate.slice(0, 10);
+
   return (
     <form>
       <DiaryTitleStyle>
@@ -36,7 +39,7 @@ export default function DiaryItem(props: DiaryItemProps) {
         <div>
           <input
             type="date"
-            value={data?.data.content.diaryDate}
+            value={diaryDateFormat}
             min="1998-02-20"
             max={new Date().toJSON().slice(0, 10)}
             readOnly
