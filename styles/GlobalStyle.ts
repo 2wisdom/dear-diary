@@ -55,12 +55,13 @@ export const Navigaiter = styled.div`
 export const FooterStyle = styled.div`
   display: flex;
   justify-content: space-between;
-  text-align: center;
-  padding: 65px 50px 0 50px;
+  /* text-align: center; */
+  padding: 65px 50px 65px 50px;
   margin-top: 50px;
   background-color: #f2f2f2;
   height: 150px;
   bottom: 0;
+  width: 100%;
 `;
 
 /* Button Style */
