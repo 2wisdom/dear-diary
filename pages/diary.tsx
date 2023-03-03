@@ -1,67 +1,24 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import {
-  DiaryContentStyle,
-  DiaryMainStyle,
-  DiaryTitleStyle,
-} from "../styles/DiaryStyle";
-import { ButtonStyle } from "../styles/GlobalStyle";
+import { useQuery } from "@tanstack/react-query";
+import DiaryItem from "../components/diary/DiaryItem";
+
+export type Diary = {
+  title: string;
+  image: string;
+  diaryDate: string;
+  content: string;
+};
 
 export default function Diary() {
-  const getDiary = async () => {
-    try {
-      const data = await axios.get("api/diary", { params: "?at=2023-02-20" });
-      console.log("data", data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  useEffect(() => {
-    axios.get("api/diary", {
-      params: {
-        at: "2023-01-01",
-      },
-    });
-  }, []);
-
-  // getDiary();
+  const { data, isFetching } = useQuery(["diaries"], async () => {
+    return axios.get("/api/diary?at=2023-02-20");
+  });
 
   return (
-    <form>
-      <DiaryTitleStyle>
-        {/* title */}
-        <input type="text" readOnly />
-      </DiaryTitleStyle>
-
-      {/* contents container */}
-      <DiaryMainStyle>
-        <div className="main-container">
-          <div className="upload-btn">
-            {/* <img
-              className={`upload-image ${changeImageStyle}`}
-              src={uploadImage}
-              alt="diary-image"
-            /> */}
-          </div>
-        </div>
-      </DiaryMainStyle>
-      <DiaryContentStyle>
-        <div>
-          <input
-            type="date"
-            min="1998-02-20"
-            max={new Date().toJSON().slice(0, 10)}
-          />
-          <div>
-            <ButtonStyle>수정</ButtonStyle>
-            <ButtonStyle>삭제</ButtonStyle>
-          </div>
-        </div>
-        <div className="content-container">
-          <textarea />
-        </div>
-      </DiaryContentStyle>
-    </form>
+    <>
+      {isFetching && <p>Loading...</p>}
+      {!isFetching && data && <DiaryItem data={data} />}
+    </>
   );
 }
