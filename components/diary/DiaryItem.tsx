@@ -5,6 +5,12 @@ import {
   DiaryTitleStyle,
 } from "../../styles/DiaryStyle";
 import { ButtonStyle } from "../../styles/GlobalStyle";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import {
+  faChevronLeft,
+  faChevronRight,
+} from "@fortawesome/fontawesome-free-solid";
 
 export type DiaryItemProps = {
   data: any;
@@ -26,6 +32,11 @@ export default function DiaryItem(props: DiaryItemProps) {
       {/* contents container */}
       <DiaryMainStyle>
         <div className="main-container">
+          <FontAwesomeIcon
+            className="chevron-icon"
+            icon={faChevronLeft as IconProp}
+            style={{ width: 25, height: 25 }}
+          />
           <div className="upload-btn">
             <img
               className={`upload-image`}
@@ -33,6 +44,11 @@ export default function DiaryItem(props: DiaryItemProps) {
               alt="diary-image"
             />
           </div>
+          <FontAwesomeIcon
+            className="chevron-icon"
+            icon={faChevronRight as IconProp}
+            style={{ width: 25, height: 25 }}
+          />
         </div>
       </DiaryMainStyle>
       <DiaryContentStyle>
