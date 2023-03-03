@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { useRouter } from "next/router";
+import axios, { RawAxiosRequestConfig } from "axios";
 import { useQuery } from "@tanstack/react-query";
-import DiaryItem from "../components/diary/DiaryItem";
+import DiaryItem from "../../components/diary/DiaryItem";
 
 export type Diary = {
   title: string;
@@ -11,9 +12,21 @@ export type Diary = {
 };
 
 export default function Diary() {
+  const router = useRouter();
+  const at = router.query.at as string;
+
+  console.log("at", at);
+
   const { data, isFetching } = useQuery(["diaries"], async () => {
-    return axios.get("/api/diary?at=2023-02-20");
+    return await axios.get("/api/diary", {
+      params: {
+        at: at,
+      },
+    });
   });
+
+  console.log("at!", at);
+  console.log("data", data);
 
   return (
     <>
