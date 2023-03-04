@@ -11,16 +11,48 @@ import {
   faChevronLeft,
   faChevronRight,
 } from "@fortawesome/fontawesome-free-solid";
+import { useRouter } from "next/router";
 
 export type DiaryItemProps = {
   data: any;
 };
 
 export default function DiaryItem(props: DiaryItemProps) {
+  const router = useRouter();
   const { data } = props;
 
   const diaryDate: string = data?.data.content.diaryDate;
   const diaryDateFormat = diaryDate.slice(0, 10);
+
+  const onPrevAt = () => {
+    const prevAt = data.data.meta.prevAt;
+
+    if (prevAt === undefined) {
+      alert("이전 일기가 없습니다!");
+      return;
+    }
+
+    router.push({
+      pathname: "/diary",
+      query: `at=${prevAt}`,
+    });
+  };
+
+  const onNextAt = () => {
+    const nextAt = data.data.meta.nextAt;
+
+    if (nextAt === undefined) {
+      alert("이후 일기가 없습니다!");
+      return;
+    }
+
+    router.push({
+      pathname: "/diary",
+      query: `at=${nextAt}`,
+    });
+  };
+
+  console.log("data3", data.data.meta.prevAt);
 
   return (
     <form>
@@ -32,11 +64,13 @@ export default function DiaryItem(props: DiaryItemProps) {
       {/* contents container */}
       <DiaryMainStyle>
         <div className="main-container">
+          {/* Before Diary Button */}
           <FontAwesomeIcon
             className="chevron-icon"
             icon={faChevronLeft as IconProp}
-            style={{ width: 25, height: 25 }}
+            onClick={onPrevAt}
           />
+
           <div className="upload-btn">
             <img
               className={`upload-image`}
@@ -44,10 +78,12 @@ export default function DiaryItem(props: DiaryItemProps) {
               alt="diary-image"
             />
           </div>
+
+          {/* After Diary Button */}
           <FontAwesomeIcon
             className="chevron-icon"
             icon={faChevronRight as IconProp}
-            style={{ width: 25, height: 25 }}
+            onClick={onNextAt}
           />
         </div>
       </DiaryMainStyle>
