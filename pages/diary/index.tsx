@@ -15,9 +15,7 @@ export default function Diary() {
   const router = useRouter();
   const at = router.query.at as string;
 
-  console.log("at", at);
-
-  const { data, isFetching } = useQuery(["diaries"], async () => {
+  const { data, isFetching } = useQuery(["diaries", at], async () => {
     return await axios.get("/api/diary", {
       params: {
         at: at,
@@ -25,7 +23,6 @@ export default function Diary() {
     });
   });
 
-  console.log("at!", at);
   console.log("data", data);
 
   return (
