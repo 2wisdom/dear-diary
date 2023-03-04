@@ -98,7 +98,7 @@ export default function DiaryItem(props: DiaryItemProps) {
           />
           <div>
             <ButtonStyle>수정</ButtonStyle>
-            <ButtonStyle>삭제</ButtonStyle>
+            <ButtonStyle style={{ marginLeft: 10 }}>삭제</ButtonStyle>
           </div>
         </div>
         <div className="content-container">
