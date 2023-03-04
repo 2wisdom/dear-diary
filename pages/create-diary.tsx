@@ -129,6 +129,7 @@ export default function CreateDiaryForm() {
             <ButtonStyle type="submit">완료</ButtonStyle>
             <ButtonStyle
               type="reset"
+              style={{ marginLeft: 10 }}
               onClick={() => {
                 router.push({
                   pathname: "/diary",
