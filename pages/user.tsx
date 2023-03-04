@@ -11,9 +11,12 @@ export default function User() {
   const { data: session } = useSession();
   const userName = session?.user?.name;
 
-  const goWriteDiary = () => {
+  const goLeadDiary = () => {
+    const today = new Date().toJSON().slice(0, 10);
+
     router.push({
-      pathname: "/create-diary",
+      pathname: "/diary",
+      query: `at=${today}`,
     });
   };
 
@@ -47,7 +50,7 @@ export default function User() {
           <div>&lt; 내가 쓴 일기 &gt;</div>
         </div>
         <div>
-          <ButtonStyle className="container-margin">
+          <ButtonStyle className="container-margin" onClick={goLeadDiary}>
             일기 읽으러 가기
           </ButtonStyle>
         </div>
