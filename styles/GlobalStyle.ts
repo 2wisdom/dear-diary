@@ -74,5 +74,5 @@ export const ButtonStyle = styled.button`
   padding: 3px 15px 3px 15px;
   font-size: 16px;
   cursor: pointer;
-  margin-left: 10px;
+  /* margin-left: 10px; */
 `;
