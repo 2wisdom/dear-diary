@@ -26,4 +26,13 @@ export const UserStyle = styled.div`
   .container-margin {
     margin-bottom: 20px;
   }
+
+  .diaries-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 10px;
+  }
 `;
