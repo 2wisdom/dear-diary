@@ -6,7 +6,6 @@ import { useRouter } from "next/router";
 import { UserStyle } from "../styles/UserStyle";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import MyDiaries from "../components/diary/MyDiaries";
 
 export type Diary = {
   id: string;
@@ -79,7 +78,16 @@ export default function User() {
         </div>
 
         {data?.data.content.map((diary) => (
-          <div className="diaries-container" key={diary.id}>
+          <div
+            className="diaries-container"
+            key={diary.id}
+            onClick={() => {
+              router.push({
+                pathname: "/diary",
+                query: `at=${diary.diaryDate.slice(0, 10)}`,
+              });
+            }}
+          >
             <div>{diary.diaryDate.slice(0, 10)}</div>
             <div style={{ fontWeight: 600 }}>{diary.title}</div>
           </div>

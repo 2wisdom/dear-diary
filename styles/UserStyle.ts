@@ -34,5 +34,6 @@ export const UserStyle = styled.div`
     text-align: center;
     align-items: center;
     margin-bottom: 10px;
+    cursor: pointer;
   }
 `;
