@@ -58,6 +58,7 @@ export default function CreateDiaryForm() {
       alert("오늘도 수고했어요!");
       router.push({
         pathname: "/diary",
+        query: `at=${values.diaryDate}`,
       });
     } catch (err) {
       console.log(err);
