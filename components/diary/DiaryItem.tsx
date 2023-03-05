@@ -12,14 +12,17 @@ import {
   faChevronRight,
 } from "@fortawesome/fontawesome-free-solid";
 import { useRouter } from "next/router";
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
 
 export type DiaryItemProps = {
   data: any;
+  id: string;
 };
 
 export default function DiaryItem(props: DiaryItemProps) {
   const router = useRouter();
-  const { data } = props;
+  const { data, id } = props;
 
   const diaryDate: string = data?.data.content.diaryDate;
   const diaryDateFormat = diaryDate.slice(0, 10);
@@ -52,7 +55,25 @@ export default function DiaryItem(props: DiaryItemProps) {
     });
   };
 
-  console.log("data3", data.data.meta.prevAt);
+  const deleteDiary = useMutation(async (diaryId: string) => {
+    return axios.delete("/api/diary", {
+      params: {
+        id: diaryId,
+      },
+    });
+  });
+
+  const onDelete = async () => {
+    if (!confirm("정말 삭제하시겠어요?")) {
+      return;
+    }
+
+    router.push({
+      pathname: "/user",
+    });
+
+    await deleteDiary.mutateAsync(id);
+  };
 
   return (
     <form>
@@ -98,7 +119,9 @@ export default function DiaryItem(props: DiaryItemProps) {
           />
           <div>
             <ButtonStyle>수정</ButtonStyle>
-            <ButtonStyle style={{ marginLeft: 10 }}>삭제</ButtonStyle>
+            <ButtonStyle onClick={onDelete} style={{ marginLeft: 10 }}>
+              삭제
+            </ButtonStyle>
           </div>
         </div>
         <div className="content-container">

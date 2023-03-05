@@ -165,4 +165,24 @@ handler.get(async (req, res) => {
   });
 });
 
+/**
+ * 다이어리 삭제
+ * DELETE /api/diary
+ */
+handler.delete(async (req, res) => {
+  const { id } = req.query as {
+    id: string;
+  };
+
+  await prisma.diary.delete({
+    where: {
+      id: id,
+    },
+  });
+
+  return res.send({
+    id: id,
+  });
+});
+
 export default handler;

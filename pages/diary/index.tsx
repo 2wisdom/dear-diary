@@ -9,7 +9,12 @@ export type Diary = {
   image: string;
   diaryDate: string;
   content: string;
+  id: string;
 };
+
+// export type DiaryResponse = {
+//   content: Diary[];
+// };
 
 export default function Diary() {
   const router = useRouter();
@@ -23,12 +28,13 @@ export default function Diary() {
     });
   });
 
+  const diaryId = data?.data.content.id;
   console.log("data", data);
 
   return (
     <>
       {isFetching && <p>Loading...</p>}
-      {!isFetching && data && <DiaryItem data={data} />}
+      {!isFetching && data && <DiaryItem data={data} id={diaryId} />}
     </>
   );
 }
