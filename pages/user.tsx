@@ -37,8 +37,6 @@ export default function User() {
     return await axios.get<DiaryResponse>("/api/me/diary");
   });
 
-  console.log("data", data?.data.content);
-
   return (
     <UserStyle>
       <div className="go-creatediary-container">

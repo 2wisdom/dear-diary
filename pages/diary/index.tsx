@@ -29,7 +29,6 @@ export default function Diary() {
   });
 
   const diaryId = data?.data.content.id;
-  console.log("data", data);
 
   return (
     <>
