@@ -68,5 +68,5 @@ model Diary {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  diaryDate DateTime @db.Date @unique
+  diaryDate DateTime @db.Date
 }
