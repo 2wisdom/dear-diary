@@ -25,7 +25,7 @@ export default function DiaryItem(props: DiaryItemProps) {
   const { data, id } = props;
 
   const diaryDate: string = data?.data.content.diaryDate;
-  const diaryDateFormat = diaryDate.slice(0, 10);
+  const diaryDateFormat = diaryDate?.split("T")[0];
 
   const onPrevAt = () => {
     const prevAt = data.data.meta.prevAt;
