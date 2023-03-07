@@ -75,27 +75,12 @@ export default function DiaryItem(props: DiaryItemProps) {
     await deleteDiary.mutateAsync(id);
   };
 
-  const [changeDate, setChangeDate] = useState(diaryDateFormat);
-
   const onChangeDate = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setChangeDate(e.target.value);
+    router.push({
+      pathname: "/diary",
+      query: `at=${e.target.value}`,
+    });
   };
-
-  useEffect(() => {
-    if (changeDate?.length > 2) {
-      // TODO: 일기가 없으면 addDiary 를 보여줌.
-
-      // TODO: 해당 날짜에 일기가 있으면 해당 일기로 이동
-      router.push({
-        pathname: "/diary",
-        query: `at=${changeDate}`,
-      });
-
-      if (!changeDate.length) {
-        console.log("없어용");
-      }
-    }
-  }, [changeDate]);
 
   return (
     <form>
@@ -134,7 +119,7 @@ export default function DiaryItem(props: DiaryItemProps) {
         <div>
           <input
             type="date"
-            value={changeDate}
+            value={diaryDateFormat}
             min="1998-02-20"
             max={new Date().toJSON().slice(0, 10)}
             onChange={onChangeDate}
