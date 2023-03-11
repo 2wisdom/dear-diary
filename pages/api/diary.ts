@@ -185,4 +185,28 @@ handler.delete(async (req, res) => {
   });
 });
 
+/**
+ * 다이어리 수정
+ * PUT /api/diary
+ */
+handler.put(async (req, res) => {
+  const { id, title, content, image, diaryDate } = req.body;
+
+  await prisma.diary.update({
+    where: {
+      id,
+    },
+    data: {
+      title,
+      content,
+      image,
+      diaryDate,
+    },
+  });
+
+  res.send({
+    id: id,
+  });
+});
+
 export default handler;
