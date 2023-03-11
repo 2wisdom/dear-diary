@@ -97,7 +97,7 @@ export default function DiaryItem(props: DiaryItemProps) {
    */
 
   const updateDiary = useMutation(async (diary: DiaryItemProps) => {
-    return axios.post("/api/diary", {
+    return axios.put("/api/diary", {
       ...diary,
     });
   });
