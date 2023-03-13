@@ -41,6 +41,13 @@ export const DiaryMainStyle = styled.div`
     cursor: pointer;
   }
 
+  .plus-icon {
+    margin: 0 20px 0 20px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+
   .upload-btn {
     display: flex;
     flex-direction: column;

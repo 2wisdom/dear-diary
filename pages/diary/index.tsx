@@ -33,23 +33,38 @@ export default function Diary() {
     refetch();
   };
 
-  console.log("data", data);
+  const findDataLength = () => {
+    if (!data) {
+      return;
+    }
+
+    const dataKey = Object.keys(data?.data.content).length;
+    if (dataKey === 0) {
+      return;
+    }
+
+    return dataKey;
+  };
+
+  // console.log("dataLength", findDataLength());
+
+  // console.log("data", data);
 
   return (
     <>
       {isFetching && <p>Loading...</p>}
-      {/* fetching 이 끝났는데, 데이터가 없으면, <AddDiary /> 를 띄운다. */}
-      {!isFetching && !data && <AddDiary />}
-      {!isFetching && data && (
-        <DiaryItem
-          data={data}
-          id={data.data.content.id}
-          title={data.data.content.title}
-          image={data.data.content.image}
-          content={data.data.content.content}
-          onUpdateDiary={handleOnUpdateDiary}
-        />
-      )}
+      {/* {!isFetching && !findDataLength() && <AddDiary />} */}
+      {(!isFetching && !findDataLength() && <AddDiary data={data} />) ||
+        (!isFetching && data && (
+          <DiaryItem
+            data={data}
+            id={data.data.content.id}
+            title={data.data.content.title}
+            image={data.data.content.image}
+            content={data.data.content.content}
+            onUpdateDiary={handleOnUpdateDiary}
+          />
+        ))}
     </>
   );
 }
