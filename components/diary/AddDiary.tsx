@@ -49,11 +49,6 @@ export default function AddDiary(props: AddDiaryProps) {
     });
   };
 
-  const diaryDate: string = data?.data.content.diaryDate;
-  console.log("data", data);
-  console.log("query", router.query.at);
-  const diaryDateFormat = diaryDate?.split("T")[0];
-
   const onChangeDate = (e: React.ChangeEvent<HTMLInputElement>) => {
     router.push({
       pathname: "/diary",
