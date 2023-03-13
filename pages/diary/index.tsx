@@ -33,8 +33,6 @@ export default function Diary() {
     refetch();
   };
 
-  const diaryId = data?.data.content.id;
-
   console.log("data", data);
 
   return (
@@ -45,7 +43,7 @@ export default function Diary() {
       {!isFetching && data && (
         <DiaryItem
           data={data}
-          id={diaryId}
+          id={data.data.content.id}
           title={data.data.content.title}
           image={data.data.content.image}
           content={data.data.content.content}
