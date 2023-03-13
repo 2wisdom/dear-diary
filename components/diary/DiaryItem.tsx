@@ -19,13 +19,17 @@ import { useForm } from "react-hook-form";
 export type DiaryItemProps = {
   data: any;
   id: string;
+  title: string;
+  image: string;
+  content: string;
+  onUpdateDiary: () => void;
 };
 
 export type ItemMode = "read" | "update";
 
 export default function DiaryItem(props: DiaryItemProps) {
   const router = useRouter();
-  const { data, id } = props;
+  const { data, id, onUpdateDiary } = props;
 
   const [mode, setMode] = useState<ItemMode>("read");
 
@@ -115,6 +119,7 @@ export default function DiaryItem(props: DiaryItemProps) {
     console.log("values", values);
 
     handleClickMode("read");
+    onUpdateDiary();
   });
 
   return (
@@ -180,7 +185,11 @@ export default function DiaryItem(props: DiaryItemProps) {
         <form onSubmit={onSubmit}>
           <DiaryTitleStyle>
             {/* title */}
-            <input type="text" defaultValue={data?.data.content.title} />
+            <input
+              type="text"
+              defaultValue={data?.data.content.title}
+              {...register("title")}
+            />
           </DiaryTitleStyle>
 
           {/* contents container */}
@@ -191,6 +200,7 @@ export default function DiaryItem(props: DiaryItemProps) {
                   className={`upload-image`}
                   src={data?.data.content.image}
                   alt="diary-image"
+                  {...register("image")}
                 />
               </div>
             </div>
@@ -219,7 +229,10 @@ export default function DiaryItem(props: DiaryItemProps) {
               </div>
             </div>
             <div className="content-container">
-              <textarea defaultValue={data?.data.content.content} />
+              <textarea
+                defaultValue={data?.data.content.content}
+                {...register("content")}
+              />
             </div>
           </DiaryContentStyle>
         </form>

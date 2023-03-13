@@ -190,7 +190,7 @@ handler.delete(async (req, res) => {
  * PUT /api/diary
  */
 handler.put(async (req, res) => {
-  const { id, title, content, image, diaryDate } = req.body;
+  const { id, title, content, image } = req.body;
 
   await prisma.diary.update({
     where: {
@@ -200,7 +200,6 @@ handler.put(async (req, res) => {
       title,
       content,
       image,
-      diaryDate,
     },
   });
 
