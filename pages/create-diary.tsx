@@ -124,7 +124,6 @@ export default function CreateDiaryForm() {
             max={new Date().toJSON().slice(0, 10)}
             defaultValue={new Date().toJSON().slice(0, 10)}
             {...register("diaryDate")}
-            readOnly
           />
           <div>
             <ButtonStyle type="submit">완료</ButtonStyle>

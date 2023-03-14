@@ -56,6 +56,12 @@ export default function AddDiary(props: AddDiaryProps) {
     });
   };
 
+  const onCreateDiary = () => {
+    router.push({
+      pathname: "/create-diary",
+    });
+  };
+
   return (
     <div>
       <DiaryTitleStyle>
@@ -74,7 +80,11 @@ export default function AddDiary(props: AddDiaryProps) {
           />
 
           <div className="upload-btn">
-            <FontAwesomeIcon className="plus-icon" icon={faPlus as IconProp} />
+            <FontAwesomeIcon
+              className="plus-icon"
+              icon={faPlus as IconProp}
+              onClick={onCreateDiary}
+            />
           </div>
 
           {/* After Diary Button */}
