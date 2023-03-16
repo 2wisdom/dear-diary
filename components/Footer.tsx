@@ -8,8 +8,8 @@ export default function Footer() {
     <FooterStyle>
       <div>
         <a>
-          Copyright &copy; 2023-{new Date().getFullYear()} Dear-Diary. All
-          rights reserved.
+          Copyright &copy; {new Date().getFullYear()}{" "}
+          <a style={{ fontWeight: 700 }}>Dear Diary</a>. All rights reserved.
         </a>
       </div>
       <div>
