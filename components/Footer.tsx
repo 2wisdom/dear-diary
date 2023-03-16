@@ -7,10 +7,10 @@ export default function Footer() {
   return (
     <FooterStyle>
       <div>
-        <a>
-          Copyright &copy; {new Date().getFullYear()}{" "}
-          <a style={{ fontWeight: 700 }}>Dear Diary</a>. All rights reserved.
-        </a>
+        <span>
+          Copyright &copy; {new Date().getFullYear()}
+          <a style={{ fontWeight: 700 }}> Dear Diary</a>. All rights reserved.
+        </span>
       </div>
       <div>
         <a href="https://github.com/2wisdom" target="_blank" rel="noreferrer">
