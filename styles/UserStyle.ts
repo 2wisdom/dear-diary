@@ -5,10 +5,19 @@ export const UserStyle = styled.div`
   grid-template-columns: 1fr 1fr;
   text-align: center;
 
+  @media screen and (max-width: 480px) {
+    display: flex;
+    flex-direction: column;
+  }
+
   .go-creatediary-container,
   .go-getdiary-container {
     display: flex;
     flex-direction: column;
+
+    @media screen and (max-width: 480px) {
+      margin-bottom: 50px;
+    }
   }
 
   .username-container,
@@ -17,6 +26,11 @@ export const UserStyle = styled.div`
     font-weight: 700;
     font-size: 32px;
     justify-content: center;
+
+    @media screen and (max-width: 480px) {
+      display: flex;
+      flex-direction: column;
+    }
   }
 
   .username {

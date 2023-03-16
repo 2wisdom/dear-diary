@@ -41,8 +41,10 @@ export default function User() {
     <UserStyle>
       <div className="go-creatediary-container">
         <div className="username-container container-margin">
-          <span className="username">{userName}</span>님, 오늘은 무슨 일이
-          있었나요?
+          <span>
+            <span className="username">{userName}</span>님,&nbsp;
+          </span>
+          <span>오늘은 무슨 일이 있었나요?</span>
         </div>
         <div>
           <ButtonStyle
