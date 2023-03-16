@@ -15,8 +15,8 @@ export default function Navbar() {
           <Link href="/">
             <Image
               src="/images/logo.svg"
-              width={234}
-              height={60}
+              width={224}
+              height={50}
               alt="logo"
               style={{ alignItems: "center" }}
             />
