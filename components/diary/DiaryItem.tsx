@@ -143,7 +143,7 @@ export default function DiaryItem(props: DiaryItemProps) {
 
               <div className="upload-btn">
                 <img
-                  className={`upload-image`}
+                  className="upload-image"
                   src={data?.data.content.image}
                   alt="diary-image"
                 />
