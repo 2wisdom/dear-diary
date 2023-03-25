@@ -4,11 +4,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import axios from "axios";
-import {
-  DiaryContentStyle,
-  DiaryMainStyle,
-  DiaryTitleStyle,
-} from "../styles/DiaryStyle";
+import { DiaryStyle } from "../styles/DiaryStyle";
 import { ButtonStyle } from "../styles/GlobalStyle";
 import { useMutation } from "@tanstack/react-query";
 
@@ -86,75 +82,85 @@ export default function CreateDiaryForm() {
   };
 
   return (
-    <form onSubmit={onSubmit} encType="multipart/form-data">
-      <DiaryTitleStyle>
-        {/* title */}
-        <input type="text" placeholder="오늘의 일기" {...register("title")} />
-      </DiaryTitleStyle>
-
-      {/* contents container */}
-      <DiaryMainStyle>
-        <div className="main-container">
-          <div className="upload-btn">
-            <input type="hidden" {...register("image")} />
-            <label htmlFor="uploadFile" className={`upladLabel ${changeClick}`}>
-              Click ! 📸
-            </label>
-
-            <img
-              className={`upload-image ${changeImageStyle}`}
-              src={uploadImage}
-              alt="diary-image"
-            />
-
-            <input
-              type="file"
-              id="uploadFile"
-              accept="image/*"
-              onChange={onImageChange}
-            />
-          </div>
-        </div>
-      </DiaryMainStyle>
-      <DiaryContentStyle>
-        <div>
+    <DiaryStyle>
+      <form onSubmit={onSubmit} encType="multipart/form-data">
+        <div className="diary-title-container">
+          {/* title */}
           <input
-            type="date"
-            min="1998-02-20"
-            max={new Date().toJSON().slice(0, 10)}
-            defaultValue={new Date().toJSON().slice(0, 10)}
-            {...register("diaryDate")}
+            className="diary-title-input"
+            type="text"
+            placeholder="오늘의 일기"
+            {...register("title")}
           />
-          <div>
-            <ButtonStyle type="submit">완료</ButtonStyle>
-            <ButtonStyle
-              type="reset"
-              style={{ marginLeft: 10 }}
-              onClick={() => {
-                router.push({
-                  pathname: "/diary",
-                  query: `at=${new Date().toJSON().slice(0, 10)}`,
-                });
-              }}
-            >
-              취소
-            </ButtonStyle>
+        </div>
+
+        {/* contents container */}
+        <div className="diary-main-container">
+          <div className="main-container">
+            <div className="upload-btn">
+              <input type="hidden" {...register("image")} />
+              <label
+                htmlFor="uploadFile"
+                className={`upladLabel ${changeClick}`}
+              >
+                Click ! 📸
+              </label>
+
+              <img
+                className={`upload-image ${changeImageStyle}`}
+                src={uploadImage}
+                alt="diary-image"
+              />
+
+              <input
+                type="file"
+                id="uploadFile"
+                accept="image/*"
+                onChange={onImageChange}
+              />
+            </div>
           </div>
         </div>
-        <div className="content-container">
-          <textarea
-            placeholder="오늘 무슨일이 있었나요?"
-            {...register("content")}
-          />
+        <div className="diary-content-wrapper">
+          <div className="diary-content-container">
+            <input
+              type="date"
+              min="1998-02-20"
+              max={new Date().toJSON().slice(0, 10)}
+              defaultValue={new Date().toJSON().slice(0, 10)}
+              {...register("diaryDate")}
+            />
+            <div className="button-container">
+              <ButtonStyle type="submit">완료</ButtonStyle>
+              <ButtonStyle
+                type="reset"
+                style={{ marginLeft: 10 }}
+                onClick={() => {
+                  router.push({
+                    pathname: "/diary",
+                    query: `at=${new Date().toJSON().slice(0, 10)}`,
+                  });
+                }}
+              >
+                취소
+              </ButtonStyle>
+            </div>
+          </div>
+          <div className="content-container">
+            <textarea
+              placeholder="오늘 무슨일이 있었나요?"
+              {...register("content")}
+            />
+          </div>
         </div>
-      </DiaryContentStyle>
-      <p className="error-message">
-        {errors.title?.message ||
-          errors.image?.message ||
-          errors.diaryDate?.message ||
-          errors.content?.message ||
-          "\u00A0"}
-      </p>
-    </form>
+        <p className="error-message">
+          {errors.title?.message ||
+            errors.image?.message ||
+            errors.diaryDate?.message ||
+            errors.content?.message ||
+            "\u00A0"}
+        </p>
+      </form>
+    </DiaryStyle>
   );
 }
