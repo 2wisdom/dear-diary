@@ -60,7 +60,7 @@ export const FooterStyle = styled.div`
   /* text-align: center; */
   padding: 65px 50px 65px 50px;
   margin-top: 50px;
-  background-color: #f2f2f2;
+  /* background-color: #f2f2f2; */
   height: 150px;
   bottom: 0;
   width: 100%;
