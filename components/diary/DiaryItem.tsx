@@ -1,9 +1,5 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
-import {
-  DiaryContentStyle,
-  DiaryMainStyle,
-  DiaryTitleStyle,
-} from "../../styles/DiaryStyle";
+import { DiaryStyle } from "../../styles/DiaryStyle";
 import { ButtonStyle } from "../../styles/GlobalStyle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
@@ -123,16 +119,21 @@ export default function DiaryItem(props: DiaryItemProps) {
   });
 
   return (
-    <>
+    <DiaryStyle>
       {mode === "read" && (
         <form>
-          <DiaryTitleStyle>
+          <div className="diary-title-container">
             {/* title */}
-            <input type="text" value={data?.data.content.title} readOnly />
-          </DiaryTitleStyle>
+            <input
+              className="diary-title-input"
+              type="text"
+              value={data?.data.content.title}
+              readOnly
+            />
+          </div>
 
           {/* contents container */}
-          <DiaryMainStyle>
+          <div className="diary-main-container">
             <div className="main-container">
               {/* Before Diary Button */}
               <FontAwesomeIcon
@@ -156,9 +157,9 @@ export default function DiaryItem(props: DiaryItemProps) {
                 onClick={onNextAt}
               />
             </div>
-          </DiaryMainStyle>
-          <DiaryContentStyle>
-            <div>
+          </div>
+          <div className="diary-content-wrapper">
+            <div className="diary-content-container">
               <input
                 type="date"
                 value={diaryDateFormat}
@@ -166,7 +167,7 @@ export default function DiaryItem(props: DiaryItemProps) {
                 max={new Date().toJSON().slice(0, 10)}
                 onChange={onChangeDate}
               />
-              <div>
+              <div className="button-container">
                 <ButtonStyle onClick={() => handleClickMode("update")}>
                   수정
                 </ButtonStyle>
@@ -178,22 +179,23 @@ export default function DiaryItem(props: DiaryItemProps) {
             <div className="content-container">
               <textarea value={data?.data.content.content} readOnly />
             </div>
-          </DiaryContentStyle>
+          </div>
         </form>
       )}
       {mode === "update" && (
         <form onSubmit={onSubmit}>
-          <DiaryTitleStyle>
+          <div className="diary-title-container">
             {/* title */}
             <input
+              className="diary-title-input"
               type="text"
               defaultValue={data?.data.content.title}
               {...register("title")}
             />
-          </DiaryTitleStyle>
+          </div>
 
           {/* contents container */}
-          <DiaryMainStyle>
+          <div className="diary-main-container">
             <div className="main-container">
               <div className="upload-btn">
                 <img
@@ -204,9 +206,9 @@ export default function DiaryItem(props: DiaryItemProps) {
                 />
               </div>
             </div>
-          </DiaryMainStyle>
-          <DiaryContentStyle>
-            <div>
+          </div>
+          <div className="diary-content-wrapper">
+            <div className="diary-content-container">
               <input
                 type="date"
                 value={diaryDateFormat}
@@ -215,7 +217,7 @@ export default function DiaryItem(props: DiaryItemProps) {
                 onChange={onChangeDate}
                 readOnly
               />
-              <div>
+              <div className="button-container">
                 <ButtonStyle
                   onClick={() => {
                     handleClickMode("read");
@@ -234,9 +236,9 @@ export default function DiaryItem(props: DiaryItemProps) {
                 {...register("content")}
               />
             </div>
-          </DiaryContentStyle>
+          </div>
         </form>
       )}
-    </>
+    </DiaryStyle>
   );
 }

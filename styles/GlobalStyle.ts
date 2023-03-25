@@ -24,6 +24,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
+  width: 100%;
 `;
 
 /* ContentWrapper style */
@@ -33,6 +34,7 @@ export const ContentWrapper = styled.div`
   margin: 0 auto;
   margin-top: 50px;
   flex: 1;
+  /* width: 100%; */
 `;
 
 /* Navbar Style */
