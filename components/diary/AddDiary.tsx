@@ -1,10 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
-import {
-  DiaryContentStyle,
-  DiaryMainStyle,
-  DiaryTitleStyle,
-} from "../../styles/DiaryStyle";
+import { DiaryStyle } from "../../styles/DiaryStyle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -63,14 +59,14 @@ export default function AddDiary(props: AddDiaryProps) {
   };
 
   return (
-    <div>
-      <DiaryTitleStyle>
+    <DiaryStyle>
+      <div className="diary-title-container">
         {/* title */}
-        <input type="text" readOnly />
-      </DiaryTitleStyle>
+        <input className="diary-title-input" type="text" readOnly />
+      </div>
 
       {/* contents container */}
-      <DiaryMainStyle>
+      <div className="diary-main-container">
         <div className="main-container">
           {/* Before Diary Button */}
           <FontAwesomeIcon
@@ -94,10 +90,10 @@ export default function AddDiary(props: AddDiaryProps) {
             onClick={onNextAt}
           />
         </div>
-      </DiaryMainStyle>
+      </div>
 
-      <DiaryContentStyle>
-        <div>
+      <div className="diary-content-wrapper">
+        <div className="diary-content-container">
           <input
             type="date"
             value={router.query.at}
@@ -109,7 +105,7 @@ export default function AddDiary(props: AddDiaryProps) {
         <div className="content-container">
           <textarea value={data?.data.content.content} readOnly />
         </div>
-      </DiaryContentStyle>
-    </div>
+      </div>
+    </DiaryStyle>
   );
 }
