@@ -133,6 +133,7 @@ export default function CreateDiaryForm() {
               onClick={() => {
                 router.push({
                   pathname: "/diary",
+                  query: `at=${new Date().toJSON().slice(0, 10)}`,
                 });
               }}
             >
