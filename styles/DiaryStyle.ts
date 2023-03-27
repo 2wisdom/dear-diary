@@ -42,7 +42,7 @@ export const DiaryStyle = styled.div`
   }
 
   .chevron-icon {
-    margin: 0 20px 0 20px;
+    margin: 0 0 0 5px;
     width: 25px;
     height: 25px;
     cursor: pointer;
