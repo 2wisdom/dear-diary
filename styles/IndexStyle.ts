@@ -30,7 +30,7 @@ export const IndexStyle = styled.div`
     height: 404px;
 
     @media screen and (max-width: 480px) {
-      width: 412.5px;
+      width: 90%;
       height: 202px;
       margin: 30px 0 50px 0;
     }
@@ -60,7 +60,7 @@ export const IndexStyle = styled.div`
 
     @media screen and (max-width: 480px) {
       margin-top: 0px;
-      width: 300px;
+      width: 90%;
     }
   }
 `;
