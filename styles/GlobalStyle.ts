@@ -32,9 +32,7 @@ export const ContentWrapper = styled.div`
   max-width: 1200px;
   text-align: center;
   margin: 0 auto;
-  /* margin-top: 50px; */
   flex: 1;
-  /* width: 100%; */
 `;
 
 /* Navbar Style */
@@ -57,9 +55,7 @@ export const Navigaiter = styled.div`
 export const FooterStyle = styled.div`
   display: flex;
   justify-content: space-between;
-  /* text-align: center; */
   padding: 65px 50px 65px 50px;
-  /* margin-top: 50px; */
   background-color: #f2f2f2;
   height: 150px;
   bottom: 0;

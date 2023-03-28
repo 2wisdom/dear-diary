@@ -11,7 +11,6 @@ export const DiaryStyle = styled.div`
     align-items: center;
     position: relative;
     justify-content: center;
-    /* right: 20px; */
   }
 
   .diary-title-input {
@@ -30,23 +29,11 @@ export const DiaryStyle = styled.div`
     }
   }
 
-  /* .diary-main-container {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-  } */
-
   .main-container {
     display: flex;
     align-items: center;
     text-align: center;
     justify-content: center;
-    /* margin: 0; */
-
-    @media screen and (max-width: 480px) {
-      /* width: 400px; */
-    }
   }
 
   .chevron-icon {
@@ -90,7 +77,6 @@ export const DiaryStyle = styled.div`
     max-height: 450px;
 
     @media screen and (max-width: 480px) {
-      /* max-width: 400px; */
       width: 100%;
     }
   }
@@ -156,7 +142,6 @@ export const DiaryTitleStyle = styled.div`
   align-items: center;
   position: relative;
   justify-content: center;
-  /* right: 20px; */
 
   input {
     background-color: transparent;
@@ -231,13 +216,7 @@ export const DiaryMainStyle = styled.div`
 
   .upload-image {
     max-width: 600px;
-    /* width: 90%; */
     max-height: 450px;
-
-    @media screen and (max-width: 480px) {
-      /* max-width: 400px; */
-      /* width: 100%; */
-    }
   }
 
   .image-hidden {

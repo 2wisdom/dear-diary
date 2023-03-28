@@ -7,8 +7,6 @@ export default function Home() {
       <div>
         <svg
           className="index-book-image"
-          // width="825"
-          // height="404"
           viewBox="0 0 825 404"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

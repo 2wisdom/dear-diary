@@ -133,7 +133,6 @@ export default function DiaryItem(props: DiaryItemProps) {
           </div>
 
           {/* contents container */}
-          {/* <div className="diary-main-container"> */}
           <div className="main-container">
             {/* Before Diary Button */}
             <FontAwesomeIcon
@@ -195,16 +194,14 @@ export default function DiaryItem(props: DiaryItemProps) {
           </div>
 
           {/* contents container */}
-          <div className="diary-main-container">
-            <div className="main-container">
-              <div className="upload-btn">
-                <img
-                  className={`upload-image`}
-                  src={data?.data.content.image}
-                  alt="diary-image"
-                  {...register("image")}
-                />
-              </div>
+          <div className="main-container">
+            <div className="upload-btn">
+              <img
+                className={`upload-image`}
+                src={data?.data.content.image}
+                alt="diary-image"
+                {...register("image")}
+              />
             </div>
           </div>
           <div className="diary-content-wrapper">

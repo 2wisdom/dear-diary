@@ -46,14 +46,9 @@ export default function Diary() {
     return dataKey;
   };
 
-  // console.log("dataLength", findDataLength());
-
-  // console.log("data", data);
-
   return (
     <>
       {isFetching && <p>Loading...</p>}
-      {/* {!isFetching && !findDataLength() && <AddDiary />} */}
       {(!isFetching && !findDataLength() && <AddDiary data={data} />) ||
         (!isFetching && data && (
           <DiaryItem
