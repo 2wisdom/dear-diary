@@ -139,7 +139,7 @@ export const DiaryStyle = styled.div`
     border: 1px solid transparent;
 
     @media screen and (max-width: 480px) {
-      width: 400px;
+      width: 350px;
     }
   }
 
