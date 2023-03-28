@@ -32,7 +32,7 @@ export const ContentWrapper = styled.div`
   max-width: 1200px;
   text-align: center;
   margin: 0 auto;
-  margin-top: 50px;
+  /* margin-top: 50px; */
   flex: 1;
   /* width: 100%; */
 `;
@@ -42,7 +42,7 @@ export const Navigaiter = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-  margin: 20px 10px 0 10px;
+  margin: 20px 10px 30px 10px;
   text-align: center;
   align-items: center;
 
