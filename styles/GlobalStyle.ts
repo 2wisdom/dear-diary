@@ -42,7 +42,7 @@ export const Navigaiter = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-  margin: 20px 10px 30px 10px;
+  margin: 20px 10px 55px 10px;
   text-align: center;
   align-items: center;
 
@@ -59,7 +59,7 @@ export const FooterStyle = styled.div`
   justify-content: space-between;
   /* text-align: center; */
   padding: 65px 50px 65px 50px;
-  margin-top: 50px;
+  /* margin-top: 50px; */
   background-color: #f2f2f2;
   height: 150px;
   bottom: 0;

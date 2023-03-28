@@ -9,7 +9,7 @@ const pathAni = keyframes`
 
 export const IndexStyle = styled.div`
   display: flex;
-  margin-top: 10rem;
+  /* margin-top: 10rem; */
 
   @media screen and (max-width: 480px) {
     flex-direction: column;
@@ -26,8 +26,8 @@ export const IndexStyle = styled.div`
   }
 
   .index-book-image {
-    width: 825px;
-    height: 404px;
+    width: 700px;
+    height: auto;
 
     @media screen and (max-width: 480px) {
       width: 90%;
@@ -56,10 +56,10 @@ export const IndexStyle = styled.div`
   }
 
   .index-title-image {
-    margin-top: 60px;
+    /* margin-top: 60px; */
 
     @media screen and (max-width: 480px) {
-      margin-top: 0px;
+      /* margin-top: 0px; */
       width: 90%;
     }
   }
