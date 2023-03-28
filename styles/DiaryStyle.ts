@@ -37,7 +37,6 @@ export const DiaryStyle = styled.div`
   }
 
   .chevron-icon {
-    margin: 0 5px 0 5px;
     width: 25px;
     height: 25px;
     cursor: pointer;
@@ -58,6 +57,7 @@ export const DiaryStyle = styled.div`
     align-items: center;
     width: 600px;
     height: 450px;
+    margin: 0 5px;
 
     @media screen and (max-width: 480px) {
       width: 85%;
