@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
 export const DiaryStyle = styled.div`
+  @media screen and (max-width: 480px) {
+    width: 400px;
+  }
+
   .diary-title-container {
     display: flex;
     text-align: center;
@@ -26,19 +30,23 @@ export const DiaryStyle = styled.div`
     }
   }
 
-  .diary-main-container {
+  /* .diary-main-container {
     display: flex;
     align-items: center;
     text-align: center;
     justify-content: center;
-  }
+  } */
 
   .main-container {
     display: flex;
     align-items: center;
     text-align: center;
     justify-content: center;
-    margin: 0;
+    /* margin: 0; */
+
+    @media screen and (max-width: 480px) {
+      /* width: 400px; */
+    }
   }
 
   .chevron-icon {
@@ -65,7 +73,7 @@ export const DiaryStyle = styled.div`
     height: 450px;
 
     @media screen and (max-width: 480px) {
-      width: 400px;
+      width: 85%;
     }
   }
 
@@ -82,7 +90,8 @@ export const DiaryStyle = styled.div`
     max-height: 450px;
 
     @media screen and (max-width: 480px) {
-      max-width: 400px;
+      /* max-width: 400px; */
+      width: 100%;
     }
   }
 
@@ -177,6 +186,10 @@ export const DiaryMainStyle = styled.div`
     text-align: center;
     justify-content: center;
     margin: 0;
+
+    @media screen and (max-width: 480%) {
+      width: 80%;
+    }
   }
 
   .chevron-icon {
@@ -203,7 +216,7 @@ export const DiaryMainStyle = styled.div`
     height: 450px;
 
     @media screen and (max-width: 480px) {
-      width: 400px;
+      width: 380px;
     }
   }
 
@@ -217,10 +230,12 @@ export const DiaryMainStyle = styled.div`
 
   .upload-image {
     max-width: 600px;
+    /* width: 90%; */
     max-height: 450px;
 
     @media screen and (max-width: 480px) {
-      max-width: 400px;
+      /* max-width: 400px; */
+      /* width: 100%; */
     }
   }
 

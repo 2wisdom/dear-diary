@@ -133,30 +133,30 @@ export default function DiaryItem(props: DiaryItemProps) {
           </div>
 
           {/* contents container */}
-          <div className="diary-main-container">
-            <div className="main-container">
-              {/* Before Diary Button */}
-              <FontAwesomeIcon
-                className="chevron-icon"
-                icon={faChevronLeft as IconProp}
-                onClick={onPrevAt}
-              />
+          {/* <div className="diary-main-container"> */}
+          <div className="main-container">
+            {/* Before Diary Button */}
+            <FontAwesomeIcon
+              className="chevron-icon"
+              icon={faChevronLeft as IconProp}
+              onClick={onPrevAt}
+            />
 
-              <div className="upload-btn">
-                <img
-                  className="upload-image"
-                  src={data?.data.content.image}
-                  alt="diary-image"
-                />
-              </div>
-
-              {/* After Diary Button */}
-              <FontAwesomeIcon
-                className="chevron-icon"
-                icon={faChevronRight as IconProp}
-                onClick={onNextAt}
+            <div className="upload-btn">
+              <img
+                className="upload-image"
+                src={data?.data.content.image}
+                alt="diary-image"
               />
             </div>
+
+            {/* After Diary Button */}
+            <FontAwesomeIcon
+              className="chevron-icon"
+              icon={faChevronRight as IconProp}
+              onClick={onNextAt}
+            />
+            {/* </div> */}
           </div>
           <div className="diary-content-wrapper">
             <div className="diary-content-container">
