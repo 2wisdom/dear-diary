@@ -26,7 +26,7 @@ export const DiaryStyle = styled.div`
     margin: 10px;
 
     @media screen and (max-width: 480px) {
-      max-width: 400px;
+      max-width: 80%;
     }
   }
 
@@ -50,7 +50,7 @@ export const DiaryStyle = styled.div`
   }
 
   .chevron-icon {
-    margin: 0 0 0 5px;
+    margin: 0 5px 0 5px;
     width: 25px;
     height: 25px;
     cursor: pointer;
@@ -137,6 +137,7 @@ export const DiaryStyle = styled.div`
     resize: none;
     background-color: transparent;
     border: 1px solid transparent;
+    margin-bottom: 10px;
 
     @media screen and (max-width: 480px) {
       width: 350px;
