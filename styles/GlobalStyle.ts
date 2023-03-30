@@ -39,8 +39,10 @@ export const ContentWrapper = styled.div`
 export const Navigaiter = styled.div`
   display: flex;
   justify-content: space-between;
+  width: 96vw;
   margin: 0 auto;
-  margin: 20px 10px 55px 10px;
+  margin-top: 20px;
+  margin-bottom: 55px;
   text-align: center;
   align-items: center;
 
@@ -59,7 +61,7 @@ export const FooterStyle = styled.div`
   background-color: #f2f2f2;
   height: 150px;
   bottom: 0;
-  width: 100%;
+  width: 100vw;
 `;
 
 /* Button Style */

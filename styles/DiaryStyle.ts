@@ -25,7 +25,7 @@ export const DiaryStyle = styled.div`
     margin: 10px;
 
     @media screen and (max-width: 480px) {
-      max-width: 80%;
+      max-width: 80vw;
     }
   }
 
@@ -57,10 +57,10 @@ export const DiaryStyle = styled.div`
     align-items: center;
     width: 600px;
     height: 450px;
-    margin: 0 5px;
+    margin: 0px 5px;
 
     @media screen and (max-width: 480px) {
-      width: 85%;
+      width: 85vw;
     }
   }
 
@@ -77,7 +77,7 @@ export const DiaryStyle = styled.div`
     max-height: 450px;
 
     @media screen and (max-width: 480px) {
-      width: 100%;
+      width: 90%;
     }
   }
 
