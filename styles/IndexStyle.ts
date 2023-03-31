@@ -9,8 +9,9 @@ const pathAni = keyframes`
 
 export const IndexStyle = styled.div`
   display: flex;
+  max-width: 1200px;
 
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 1018px) {
     flex-direction: column;
     margin-top: 0px;
   }
@@ -25,13 +26,17 @@ export const IndexStyle = styled.div`
   }
 
   .index-book-image {
-    width: 700px;
+    width: 600px;
     height: auto;
+
+    @media screen and (max-width: 1018px) {
+      width: 500px;
+      margin: 30px 0 50px 0;
+    }
 
     @media screen and (max-width: 480px) {
       width: 90%;
       height: 202px;
-      margin: 30px 0 50px 0;
     }
   }
 
@@ -56,7 +61,14 @@ export const IndexStyle = styled.div`
 
   .index-title-image {
     @media screen and (max-width: 480px) {
-      width: 90%;
+      width: 85%;
     }
   }
+
+  /* .index-book-image,
+  .index-title-image {
+    @media screen and (max-width: 1018px) {
+      width: 90%;
+    }
+  } */
 `;
