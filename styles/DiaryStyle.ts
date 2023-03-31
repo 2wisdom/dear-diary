@@ -24,7 +24,7 @@ export const DiaryStyle = styled.div`
     padding: 10px 20px 10px 20px;
     margin: 10px;
 
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: 660px) {
       max-width: 80vw;
     }
   }
@@ -59,7 +59,7 @@ export const DiaryStyle = styled.div`
     height: 450px;
     margin: 0px 5px;
 
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: 660px) {
       width: 85vw;
     }
   }
@@ -76,7 +76,7 @@ export const DiaryStyle = styled.div`
     max-width: 600px;
     max-height: 450px;
 
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: 660px) {
       width: 90%;
     }
   }
@@ -124,6 +124,10 @@ export const DiaryStyle = styled.div`
     background-color: transparent;
     border: 1px solid transparent;
     margin-bottom: 10px;
+
+    @media screen and (max-width: 660px) {
+      width: 80vw;
+    }
 
     @media screen and (max-width: 480px) {
       width: 350px;
