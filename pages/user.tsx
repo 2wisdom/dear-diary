@@ -76,22 +76,23 @@ export default function User() {
             일기 읽으러 가기
           </ButtonStyle>
         </div>
-
-        {data?.data.content.map((diary) => (
-          <div
-            className="diaries-container"
-            key={diary.id}
-            onClick={() => {
-              router.push({
-                pathname: "/diary",
-                query: `at=${diary.diaryDate.slice(0, 10)}`,
-              });
-            }}
-          >
-            <div>{diary.diaryDate.slice(0, 10)}</div>
-            <div style={{ fontWeight: 600 }}>{diary.title}</div>
-          </div>
-        ))}
+        <ul>
+          {data?.data.content.map((diary) => (
+            <li
+              className="diaries-container"
+              key={diary.id}
+              onClick={() => {
+                router.push({
+                  pathname: "/diary",
+                  query: `at=${diary.diaryDate.slice(0, 10)}`,
+                });
+              }}
+            >
+              <div>{diary.diaryDate.slice(0, 10)}</div>
+              <div style={{ fontWeight: 600 }}>{diary.title}</div>
+            </li>
+          ))}
+        </ul>
       </div>
     </UserStyle>
   );
