@@ -50,4 +50,9 @@ export const UserStyle = styled.div`
     margin-bottom: 10px;
     cursor: pointer;
   }
+
+  .scrollArea {
+    height: 200px;
+    overflow-x: scroll;
+  }
 `;
