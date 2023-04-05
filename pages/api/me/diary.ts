@@ -19,7 +19,7 @@ handler.get(async (req, res) => {
     nextToken?: string;
   };
 
-  const take = Number(query.take) || 5;
+  const take = Number(query.take) || 8;
 
   const list = await prisma.diary.findMany({
     take: take + 1,
