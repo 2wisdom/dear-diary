@@ -39,6 +39,7 @@
     "react-calendar": "^4.0.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.43.2",
+    "react-intersection-observer": "^9.4.3",
     "styled-component": "^2.8.0",
     "styled-components": "^5.3.6",
     "typescript": "4.9.4",

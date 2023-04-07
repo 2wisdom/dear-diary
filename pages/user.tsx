@@ -1,19 +1,27 @@
 import Link from "next/link";
-import React from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { ButtonStyle } from "../styles/GlobalStyle";
 import { useRouter } from "next/router";
 import { UserStyle } from "../styles/UserStyle";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { useInView } from "react-intersection-observer";
 
 export type Diary = {
   id: string;
   diaryDate: string;
   title: string;
 };
+
+export type Meta = {
+  nextToken: string;
+  totalElements: string;
+};
+
 export type DiaryResponse = {
   content: Diary[];
+  meta: Meta;
 };
 
 export default function User() {
@@ -33,9 +41,42 @@ export default function User() {
 
   const at = router.query.at as string;
 
-  const { data } = useQuery(["diaries"], async () => {
-    return await axios.get<DiaryResponse>("/api/me/diary");
+  /* 무한 스크롤 페이지네이션 */
+  const [nextTokenParams, setNextTokenParams] = useState("");
+  const [takeParams, setTakeParams] = useState<number>(8);
+
+  const [ref, inView] = useInView();
+
+  const { data, refetch } = useQuery(["diaries"], async () => {
+    return await axios.get<DiaryResponse>("/api/me/diary", {
+      params: {
+        nextToken: nextTokenParams,
+        take: takeParams,
+      },
+    });
   });
+
+  const setToken = data?.data.meta.nextToken as string;
+  const setTotalElements = data?.data.meta.totalElements;
+
+  // 끝까지 내리고나면 맨 마지막 데이터만 또 출력댐
+  useEffect(() => {
+    if (inView) {
+      setNextTokenParams(setToken);
+      setTakeParams(takeParams + 5);
+      refetch();
+    }
+    if (Number(setTotalElements) < Number(takeParams)) {
+      !inView;
+      // console.log("inView", inView);
+      console.log("setTotalElements", Number(setTotalElements));
+      console.log("setTake", Number(takeParams));
+      console.log("총 일기 수 보다 불러온 일기의 수가 더 많습니다.");
+      return;
+    }
+  }, [inView]);
+
+  // console.log("inView", inView);
 
   return (
     <UserStyle>
@@ -60,7 +101,7 @@ export default function User() {
           <div>
             <span>이제까지 쓴 일기 </span>
             <span style={{ textDecoration: "underLine" }}>
-              {data?.data.content.length}
+              {setTotalElements}
             </span>
             <span> 장</span>
           </div>
@@ -76,7 +117,7 @@ export default function User() {
             일기 읽으러 가기
           </ButtonStyle>
         </div>
-        <ul>
+        <ul className="scrollArea">
           {data?.data.content.map((diary) => (
             <li
               className="diaries-container"
@@ -92,6 +133,7 @@ export default function User() {
               <div style={{ fontWeight: 600 }}>{diary.title}</div>
             </li>
           ))}
+          <div ref={ref}></div>
         </ul>
       </div>
     </UserStyle>
