@@ -1,4 +1,4 @@
-# Dear Diary (진행중)
+# Dear Diary
 
 액정 속 나만의 다이어리
 <br />
@@ -6,8 +6,6 @@
 📖 [Link !](https://dear-diary-seven.vercel.app/)
 
 <br />
-
-📝 [기록 블로그](https://velog.io/@2_2wisdom/series/Dear-Diary)
 
 ## Tech Stack
 
